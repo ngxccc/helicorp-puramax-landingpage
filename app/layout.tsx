@@ -1,0 +1,50 @@
+import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Geist } from "next/font/google";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  preload: true,
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
+  subsets: ["latin", "vietnamese"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
+  preload: true,
+});
+
+export const metadata: Metadata = {
+  title: "HELICORP - PETKIT Pura Max",
+  description:
+    "Chăm mèo nhàn tênh thời đại công nghệ - Phân phối PETKIT chính hãng bởi HeLiCorp",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html
+      lang="vi"
+      className={cn(
+        "dark",
+        "h-full",
+        "antialiased",
+        plusJakarta.variable,
+        "font-sans",
+        geist.variable,
+      )}
+      style={{ colorScheme: "dark" }}
+    >
+      <body className="flex min-h-full flex-col bg-white text-slate-900 transition-colors duration-300 selection:bg-lime-400 selection:text-black dark:bg-[#0A0D14] dark:text-white">
+        {children}
+      </body>
+    </html>
+  );
+}
