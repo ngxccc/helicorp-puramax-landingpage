@@ -1,20 +1,15 @@
 "use client";
 
 import { toast } from "sonner";
-import { useTheme } from "@/components/theme-provider";
 
 export function SensorGrid() {
-  const { isDark } = useTheme();
+
 
   return (
     <div className="grid grid-cols-2 gap-4">
       {/* Cell 1: Nhiệt */}
       <div
-        className={`cursor-pointer rounded-xl border p-4 transition-all hover:border-lime-400/40 ${
-          isDark
-            ? "border-slate-800 bg-[#0A0D14]"
-            : "border-slate-200 bg-slate-50"
-        }`}
+        className="cursor-pointer rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-[#0A0D14] p-4"
         onClick={() =>
           toast.info(
             "Cảm biến nhiệt hoạt động: Nhận diện bức xạ nhiệt sinh học từ cơ thể mèo trong khoảng cách gần để tạm dừng máy.",
@@ -39,11 +34,7 @@ export function SensorGrid() {
       </div>
       {/* Cell 2: Hồng ngoại */}
       <div
-        className={`cursor-pointer rounded-xl border p-4 transition-all hover:border-lime-400/40 ${
-          isDark
-            ? "border-slate-800 bg-[#0A0D14]"
-            : "border-slate-200 bg-slate-50"
-        }`}
+        className="cursor-pointer rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-[#0A0D14] p-4"
         onClick={() =>
           toast.info(
             "Cảm biến hồng ngoại hoạt động: Phát hiện mèo đi qua hoặc tiến gần cửa máy để đảm bảo an toàn.",
@@ -69,11 +60,7 @@ export function SensorGrid() {
       </div>
       {/* Cell 3: Trọng lượng */}
       <div
-        className={`cursor-pointer rounded-xl border p-4 transition-all hover:border-lime-400/40 ${
-          isDark
-            ? "border-slate-800 bg-[#0A0D14]"
-            : "border-slate-200 bg-slate-50"
-        }`}
+        className="cursor-pointer rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-[#0A0D14] p-4"
         onClick={() =>
           toast.info(
             "Cảm biến trọng lượng hoạt động: 4 cảm biến ở chân đế đo tải trọng chính xác từ 500g, hỗ trợ mèo từ 1.5kg đến 10kg.",
@@ -99,11 +86,7 @@ export function SensorGrid() {
       </div>
       {/* Cell 4: Chống kẹp */}
       <div
-        className={`cursor-pointer rounded-xl border p-4 transition-all hover:border-lime-400/40 ${
-          isDark
-            ? "border-slate-800 bg-[#0A0D14]"
-            : "border-slate-200 bg-slate-50"
-        }`}
+        className="cursor-pointer rounded-xl border border-slate-200 bg-slate-50 dark:border-slate-800 dark:bg-[#0A0D14] p-4"
         onClick={() =>
           toast.info(
             "Cảm biến chống kẹp cơ học hoạt động: Phát hiện lực cản vật lý bất ngờ trên lồng quay để dừng lập tức và xoay ngược chiều giải phóng vật cản.",

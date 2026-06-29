@@ -2,10 +2,9 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
-import { useTheme } from "@/components/theme-provider";
 
 export function TrialForm() {
-  const { isDark } = useTheme();
+
 
   const [selectedChips, setSelectedChips] = useState<string[]>([
     "REFILL KHỬ MÙI",
@@ -44,11 +43,7 @@ export function TrialForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className={`rounded-2xl border p-8 text-left shadow-xl transition-colors duration-300 lg:col-span-7 ${
-        isDark
-          ? "border-slate-800/80 bg-[#131B2E]/20"
-          : "border-slate-200 bg-white"
-      }`}
+      className="rounded-2xl border border-slate-200 bg-white dark:border-slate-800/80 dark:bg-[#131B2E]/20 text-left p-6 sm:p-8 shadow-xl transition-colors duration-300 lg:col-span-7"
     >
       <div className="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
         {/* Họ tên */}
@@ -68,11 +63,7 @@ export function TrialForm() {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, name: e.target.value }))
             }
-            className={`rounded-xl border px-4 py-3 text-sm font-semibold transition-all outline-none ${
-              isDark
-                ? "border-slate-800 bg-[#0A0D14] text-white focus:border-lime-400"
-                : "border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500"
-            }`}
+            className="rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:placeholder-slate-500 dark:focus:border-lime-400 focus:border-lime-500 px-4 py-3 text-sm font-semibold transition-all outline-none"
           />
         </div>
 
@@ -96,11 +87,7 @@ export function TrialForm() {
                 phone: e.target.value,
               }))
             }
-            className={`rounded-xl border px-4 py-3 text-sm font-semibold transition-all outline-none ${
-              isDark
-                ? "border-slate-800 bg-[#0A0D14] text-white focus:border-lime-400"
-                : "border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500"
-            }`}
+            className="rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:placeholder-slate-500 dark:focus:border-lime-400 focus:border-lime-500 px-4 py-3 text-sm font-semibold transition-all outline-none"
           />
         </div>
       </div>
@@ -125,11 +112,7 @@ export function TrialForm() {
                 email: e.target.value,
               }))
             }
-            className={`rounded-xl border px-4 py-3 text-sm font-semibold transition-all outline-none ${
-              isDark
-                ? "border-slate-800 bg-[#0A0D14] text-white focus:border-lime-400"
-                : "border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500"
-            }`}
+            className="rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:placeholder-slate-500 dark:focus:border-lime-400 focus:border-lime-500 px-4 py-3 text-sm font-semibold transition-all outline-none"
           />
         </div>
 
@@ -151,11 +134,7 @@ export function TrialForm() {
             onChange={(e) =>
               setFormData((prev) => ({ ...prev, cats: e.target.value }))
             }
-            className={`rounded-xl border px-4 py-3 text-sm font-semibold transition-all outline-none ${
-              isDark
-                ? "border-slate-800 bg-[#0A0D14] text-white focus:border-lime-400"
-                : "border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500"
-            }`}
+            className="rounded-xl border border-slate-200 bg-slate-50 text-slate-900 placeholder-slate-400 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:placeholder-slate-500 dark:focus:border-lime-400 focus:border-lime-500 px-4 py-3 text-sm font-semibold transition-all outline-none"
           />
         </div>
       </div>
@@ -177,9 +156,7 @@ export function TrialForm() {
                   className={`cursor-pointer rounded-lg border px-4 py-2.5 text-xs font-bold transition-all ${
                     active
                       ? "border-lime-400 bg-lime-400 text-black shadow-md"
-                      : isDark
-                        ? "border-slate-800 bg-[#0A0D14]/60 text-zinc-400 hover:text-white"
-                        : "border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-black"
+                      : "border border-slate-200 bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-black dark:border-slate-800 dark:bg-[#0A0D14]/60 dark:text-zinc-400 dark:hover:text-white"
                   }`}
                 >
                   {chip} {active && "✓"}
@@ -206,11 +183,7 @@ export function TrialForm() {
             e.preventDefault();
             toast.info("Đang gọi tổng đài hỗ trợ HeLiCorp (1900 1234)...");
           }}
-          className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl border px-6 py-4 text-center text-sm font-bold transition-all ${
-            isDark
-              ? "border-slate-800 bg-[#131B2E]/60 text-white hover:bg-[#1E293B]"
-              : "border-slate-200 bg-white text-slate-800 hover:bg-slate-50"
-          }`}
+          className="flex-1 flex cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white text-slate-800 hover:bg-slate-50 dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-white dark:hover:bg-[#1E293B] py-4"
         >
           <svg
             className="h-4 w-4"
