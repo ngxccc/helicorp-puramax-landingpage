@@ -20,6 +20,7 @@ export function DeviceMockup() {
             alt="PETKIT Pura Max 2 Phiên Bản Cải Tiến"
             fill
             priority
+            fetchPriority="high"
             sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 420px"
             className="rounded-3xl object-cover"
           />
