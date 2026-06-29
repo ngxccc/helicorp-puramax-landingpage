@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "doppler run -- next build",
+    "build": "next build",
     "check-types": "tsc --noEmit",
     "dev": "next dev",
     "lint": "eslint . --fix --cache --cache-location .eslintcache",
-    "start": "doppler run -- next start",
-    "test": "doppler run -- bun test src/ app/"
+    "start": "next start"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

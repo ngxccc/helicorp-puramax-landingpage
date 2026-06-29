@@ -24,20 +24,72 @@ export function TrialForm() {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone) {
-      toast.warning("Vui lòng nhập Họ tên và Số điện thoại!");
+
+    // 1. Client-side Validation
+    if (!formData.name || formData.name.trim().length < 2) {
+      toast.warning("Họ tên phải có ít nhất 2 ký tự!");
       return;
     }
+
+    const phoneRegex = /^(0|\+84)[3|5|7|8|9][0-9]{8}$/;
+    const cleanPhone = formData.phone.replace(/\s/g, "");
+    if (!formData.phone || !phoneRegex.test(cleanPhone)) {
+      toast.warning(
+        "Số điện thoại không hợp lệ! Vui lòng nhập số điện thoại Việt Nam (ví dụ: 0901234567).",
+      );
+      return;
+    }
+
+    if (formData.email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(formData.email)) {
+        toast.warning("Email không hợp lệ!");
+        return;
+      }
+    }
+
+    const numCats = parseInt(formData.cats, 10);
+    if (isNaN(numCats) || numCats < 1 || numCats > 10) {
+      toast.warning("Số mèo phải từ 1 đến 10 bé!");
+      return;
+    }
+
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      // 2. Send data to webhook
+      const response = await fetch("/api/webhook", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...formData,
+          selectedChips,
+        }),
+      });
+
+      const resData = (await response.json()) as {
+        success: boolean;
+        error?: string;
+      };
+
+      if (!response.ok || !resData.success) {
+        throw new Error(resData.error ?? "Gửi thông tin thất bại!");
+      }
+
       toast.success(
-        "Đăng ký dùng thử thành công! HeLiCorp sẽ gọi cho bạn ngay.",
+        "Đăng ký dùng thử thành công! Dữ liệu đã gửi về Webhook hợp lệ.",
       );
       setFormData({ name: "", phone: "", email: "", cats: "1" });
-    }, 1200);
+    } catch (error) {
+      const errMsg =
+        error instanceof Error ? error.message : "Gửi dữ liệu thất bại!";
+      toast.error(errMsg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
