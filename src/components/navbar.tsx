@@ -1,8 +1,14 @@
 "use client";
+import { useState, useEffect } from "react";
 import { useTheme } from "./theme-provider";
 
 export function Navbar() {
   const { isDark, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -13,11 +19,7 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full border-b backdrop-blur-md transition-colors duration-300 ${
-        isDark
-          ? "border-slate-800/80 bg-[#0A0D14]/80"
-          : "border-slate-200/80 bg-white/80"
-      }`}
+      className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 dark:border-slate-800/80 dark:bg-[#0A0D14]/80 backdrop-blur-md transition-colors duration-300"
     >
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
@@ -76,16 +78,12 @@ export function Navbar() {
         <div className="flex items-center gap-4">
           {/* Theme Toggle Button */}
           <div
-            className={`flex items-center gap-1 rounded-full border p-1 transition-colors ${
-              isDark
-                ? "border-slate-800 bg-slate-900"
-                : "border-slate-200 bg-slate-100"
-            }`}
+            className="flex items-center gap-1 rounded-full border border-slate-200 bg-slate-100 dark:border-slate-800 dark:bg-slate-900 p-1 transition-colors"
           >
             <button
               onClick={() => setTheme("light")}
-              className={`flex cursor-pointer items-center gap-1 rounded-full px-3 py-1 text-xs font-bold transition-all ${
-                !isDark
+              className={`flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 sm:px-3 text-xs font-bold transition-all ${
+                (!mounted ? false : !isDark)
                   ? "bg-white text-black shadow-sm"
                   : "text-white opacity-60"
               }`}
@@ -100,12 +98,12 @@ export function Navbar() {
                 <circle cx="12" cy="12" r="4" />
                 <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
               </svg>
-              Sáng
+              <span className="hidden sm:inline">Sáng</span>
             </button>
             <button
               onClick={() => setTheme("dark")}
-              className={`flex cursor-pointer items-center gap-1 rounded-full px-3 py-1 text-xs font-bold transition-all ${
-                isDark
+              className={`flex cursor-pointer items-center gap-1 rounded-full px-2 py-1 sm:px-3 text-xs font-bold transition-all ${
+                (!mounted ? true : isDark)
                   ? "bg-lime-400 text-black shadow-sm"
                   : "text-slate-800 opacity-60"
               }`}
@@ -119,7 +117,7 @@ export function Navbar() {
               >
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
               </svg>
-              Tối
+              <span className="hidden sm:inline">Tối</span>
             </button>
           </div>
 

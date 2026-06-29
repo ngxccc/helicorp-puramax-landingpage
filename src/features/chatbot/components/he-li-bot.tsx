@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { useTheme } from "@/components/theme-provider";
 import { useChat } from "@/components/chat-context";
 
 interface Message {
@@ -11,7 +10,7 @@ interface Message {
 
 export function HeLiBot() {
   const { chatOpen, setChatOpen } = useChat();
-  const { isDark } = useTheme();
+
 
   const [chatInput, setChatInput] = useState("");
   const [chatMessages, setChatMessages] = useState<Message[]>([
@@ -77,11 +76,7 @@ export function HeLiBot() {
       {/* Chat window panel */}
       {chatOpen && (
         <div
-          className={`animate-slide-up flex h-112.5 w-80 flex-col overflow-hidden rounded-2xl border shadow-2xl transition-all duration-300 sm:w-96 ${
-            isDark
-              ? "border-slate-800 bg-[#0E1322] text-white"
-              : "border-slate-200 bg-white text-slate-800"
-          }`}
+          className="animate-slide-up flex h-112.5 w-80 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800 dark:border-slate-800 dark:bg-[#0E1322] dark:text-white shadow-2xl transition-all duration-300 sm:w-96"
         >
           {/* Header */}
           <div className="flex items-center justify-between bg-lime-400 px-4 py-3 font-bold text-black">
@@ -106,9 +101,7 @@ export function HeLiBot() {
 
           {/* Messages box */}
           <div
-            className={`flex flex-1 flex-col gap-3 overflow-y-auto p-4 text-xs leading-normal ${
-              isDark ? "bg-[#0A0D14]" : "bg-slate-50"
-            }`}
+            className="flex flex-1 flex-col gap-3 overflow-y-auto p-4 text-xs leading-normal bg-slate-50 dark:bg-[#0A0D14]"
           >
             {chatMessages.map((msg, i) => (
               <div
@@ -121,9 +114,7 @@ export function HeLiBot() {
                   className={`max-w-[80%] rounded-xl p-3 text-left shadow-sm ${
                     msg.sender === "user"
                       ? "rounded-br-none bg-lime-400 font-semibold text-black"
-                      : isDark
-                        ? "rounded-bl-none border border-slate-800 bg-[#131B2E] text-zinc-300"
-                        : "rounded-bl-none border border-slate-200 bg-white text-slate-700"
+                      : "rounded-bl-none border border-slate-200 bg-white text-slate-700 dark:border-slate-800 dark:bg-[#131B2E] dark:text-zinc-300"
                   }`}
                 >
                   {msg.text}
@@ -146,11 +137,7 @@ export function HeLiBot() {
                 onClick={() => {
                   setChatInput(suggestion);
                 }}
-                className={`cursor-pointer rounded-full border px-2.5 py-1 text-[10px] font-semibold transition-all ${
-                  isDark
-                    ? "border-slate-800 bg-slate-950/40 text-zinc-400 hover:text-white"
-                    : "border-slate-200 bg-white text-slate-600 hover:bg-slate-100 hover:text-black"
-                }`}
+                className="cursor-pointer rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-100 hover:text-black dark:border-slate-800 dark:bg-slate-950/40 dark:text-zinc-400 dark:hover:text-white px-2.5 py-1 text-[10px] font-semibold transition-all"
               >
                 {suggestion}
               </button>
@@ -160,22 +147,14 @@ export function HeLiBot() {
           {/* Input form */}
           <form
             onSubmit={handleSendMessage}
-            className={`flex gap-2 border-t p-3 ${
-              isDark
-                ? "border-slate-800/80 bg-[#0E1322]"
-                : "border-slate-200 bg-white"
-            }`}
+            className="flex gap-2 border-t border-slate-200 bg-white dark:border-slate-800/80 dark:bg-[#0E1322] p-3"
           >
             <input
               type="text"
               placeholder="Nhập tin nhắn..."
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
-              className={`flex-1 rounded-lg border px-3 py-2 text-xs transition-all outline-none ${
-                isDark
-                  ? "border-slate-800 bg-[#0A0D14] text-white focus:border-lime-400"
-                  : "border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500"
-              }`}
+              className="flex-1 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:focus:border-lime-400 px-3 py-2 text-xs transition-all outline-none"
             />
             <button
               type="submit"

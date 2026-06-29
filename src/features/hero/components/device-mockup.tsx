@@ -1,10 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useTheme } from "@/components/theme-provider";
 
 export function DeviceMockup() {
-  const { isDark } = useTheme();
 
   return (
     <div className="relative flex min-h-125 w-full flex-col items-center justify-center lg:col-span-6">
@@ -12,9 +10,7 @@ export function DeviceMockup() {
       <div className="relative flex aspect-square w-full max-w-105 items-center justify-center">
         {/* Ambient Glow */}
         <div
-          className={`absolute inset-0 rounded-full opacity-20 blur-3xl transition-all duration-700 ${
-            isDark ? "bg-lime-500" : "bg-lime-400"
-          }`}
+          className="absolute inset-0 rounded-full opacity-20 blur-3xl transition-all duration-700 bg-lime-400 dark:bg-lime-500"
         />
 
         {/* Main Product Image Wrapper Card - Rounded & Bordered */}
@@ -32,11 +28,7 @@ export function DeviceMockup() {
 
       {/* Overlapping Inset Card 1 (Bảo vệ 3D) - Absolute placed, visible on all viewports */}
       <div
-        className={`absolute top-[10%] left-[-4%] z-30 flex max-w-52.5 items-center gap-3 rounded-2xl border p-2.5 shadow-xl transition-all duration-300 xl:left-[-6%] 2xl:left-[-0%] ${
-          isDark
-            ? "border-slate-800 bg-[#131B2E]/95 text-white"
-            : "border-slate-200 bg-white/95 text-slate-800"
-        }`}
+        className="absolute top-[8%] left-[-4%] xl:left-[-6%] 2xl:left-[-12%] z-30 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/95 text-slate-800 dark:border-slate-800 dark:bg-[#131B2E]/95 dark:text-white shadow-xl transition-all duration-300 max-w-[210px]"
       >
         <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900">
           <Image
@@ -57,11 +49,7 @@ export function DeviceMockup() {
 
       {/* Overlapping Inset Card 2 (Kết nối App) - Absolute placed, visible on all viewports */}
       <div
-        className={`absolute top-[18%] right-[-4%] z-30 flex max-w-52.5 items-center gap-3 rounded-2xl border p-2.5 shadow-xl transition-all duration-300 xl:right-[-6%] 2xl:right-[-12%] ${
-          isDark
-            ? "border-slate-800 bg-[#131B2E]/95 text-white"
-            : "border-slate-200 bg-white/95 text-slate-800"
-        }`}
+        className="absolute top-[18%] right-[-4%] xl:right-[-6%] 2xl:right-[-12%] z-30 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white/95 text-slate-800 dark:border-slate-800 dark:bg-[#131B2E]/95 dark:text-white shadow-xl transition-all duration-300 max-w-[210px]"
       >
         <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900">
           <Image

@@ -3,7 +3,6 @@ import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import Script from "next/script";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -46,20 +45,9 @@ export default function RootLayout({
       style={{ colorScheme: "dark" }}
     >
       <head>
-        <Script
-          id="theme-initializer"
-          strategy="beforeInteractive"
+        <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme') || 'dark';
-                  document.documentElement.classList.remove('light', 'dark');
-                  document.documentElement.classList.add(theme);
-                  document.documentElement.style.colorScheme = theme;
-                } catch (e) {}
-              })();
-            `,
+            __html: `(function() { try { var theme = localStorage.getItem('theme') || 'dark'; var root = document.documentElement; root.classList.remove('light', 'dark'); root.classList.add(theme); root.style.colorScheme = theme; } catch (e) {} })();`,
           }}
         />
       </head>

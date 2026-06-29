@@ -1,10 +1,9 @@
 "use client";
 
 import { toast } from "sonner";
-import { useTheme } from "@/components/theme-provider";
 
 export function ToastCommitmentCard() {
-  const { isDark } = useTheme();
+
 
   return (
     <div
@@ -13,11 +12,7 @@ export function ToastCommitmentCard() {
           "Toast minh hoạ hoạt động! Hệ thống thông báo thời gian thực.",
         )
       }
-      className={`group flex cursor-pointer items-center justify-between rounded-xl border p-4 transition-all hover:border-lime-400/40 ${
-        isDark
-          ? "border-slate-800 bg-[#131B2E]/40"
-          : "border-slate-200 bg-white shadow-sm hover:shadow-md"
-      }`}
+      className="group flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md dark:border-slate-800 dark:bg-[#131B2E]/40 p-4 transition-all hover:border-lime-400/40"
     >
       <div>
         <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
