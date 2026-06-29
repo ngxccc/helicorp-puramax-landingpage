@@ -21,6 +21,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     if (typeof window !== "undefined") {
       const root = document.documentElement;
       const isDarkClass = root.classList.contains("dark");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setThemeState(isDarkClass ? "dark" : "light");
     }
   }, []);
@@ -34,7 +35,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.style.colorScheme = newTheme;
       try {
         localStorage.setItem("theme", newTheme);
-      } catch (e) {
+      } catch {
         // Silent error for private browsing storage restrictions
       }
     }

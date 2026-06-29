@@ -3,6 +3,7 @@ import { Plus_Jakarta_Sans, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { UserTracker } from "@/components/user-tracker";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -53,6 +54,7 @@ export default function RootLayout({
       </head>
       <body className="flex min-h-full flex-col bg-white text-slate-900 transition-colors duration-300 selection:bg-lime-400 selection:text-black dark:bg-[#0A0D14] dark:text-white">
         <ThemeProvider>{children}</ThemeProvider>
+        <UserTracker />
       </body>
     </html>
   );

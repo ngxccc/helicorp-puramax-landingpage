@@ -9,6 +9,7 @@ import { HeLiBot } from "@/features/chatbot/components/he-li-bot";
 import { ChatProvider } from "@/components/chat-context";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollytellingSection } from "@/features/scrollytelling/components/scrollytelling-section";
+import { ActivityTracker } from "@/components/activity-tracker";
 
 export default function Home() {
   return (
@@ -79,6 +80,9 @@ export default function Home() {
 
         {/* Floating HeLiBot Chatbot */}
         <HeLiBot />
+
+        {/* Realtime User Activity Tracker */}
+        <ActivityTracker />
       </div>
     </ChatProvider>
   );
