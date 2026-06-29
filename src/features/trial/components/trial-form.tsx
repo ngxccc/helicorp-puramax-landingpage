@@ -204,9 +204,7 @@ export function TrialForm() {
           href="tel:19001234"
           onClick={(e) => {
             e.preventDefault();
-            toast.info(
-              "Đang gọi tổng đài hỗ trợ HeLiCorp (1900 1234)...",
-            );
+            toast.info("Đang gọi tổng đài hỗ trợ HeLiCorp (1900 1234)...");
           }}
           className={`flex cursor-pointer items-center justify-center gap-2 rounded-xl border px-6 py-4 text-center text-sm font-bold transition-all ${
             isDark

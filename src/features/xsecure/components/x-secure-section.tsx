@@ -47,7 +47,7 @@ export function XSecureSection() {
           <div className="flex flex-col gap-6 text-left lg:col-span-7">
             {/* Card 1: Không kẹp chân */}
             <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.01] dark:border-slate-800 dark:bg-[#131B2E]/30">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400">
                 <svg
                   className="h-6 w-6"
                   viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ export function XSecureSection() {
 
             {/* Card 2: Xịt khử mùi */}
             <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.01] dark:border-slate-800 dark:bg-[#131B2E]/30">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500">
                 <svg
                   className="h-6 w-6"
                   viewBox="0 0 24 24"
@@ -97,7 +97,7 @@ export function XSecureSection() {
 
             {/* Card 3: Cảm biến xSecure */}
             <div className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.01] dark:border-slate-800 dark:bg-[#131B2E]/30">
-              <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
                 <svg
                   className="h-6 w-6"
                   viewBox="0 0 24 24"
@@ -114,7 +114,10 @@ export function XSecureSection() {
                   Cảm biến xSecure
                 </h4>
                 <p className="text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-                  Hệ thống tích hợp cảm biến nhiệt sinh học, cảm biến hồng ngoại, 4 cảm biến trọng lượng ở chân máy hỗ trợ mèo từ 1.5kg đến 10kg (nhận diện từ 500g) và cơ chế chống kẹp cơ học phản hồi lực dừng quay lập tức.
+                  Hệ thống tích hợp cảm biến nhiệt sinh học, cảm biến hồng
+                  ngoại, 4 cảm biến trọng lượng ở chân máy hỗ trợ mèo từ 1.5kg
+                  đến 10kg (nhận diện từ 500g) và cơ chế chống kẹp cơ học phản
+                  hồi lực dừng quay lập tức.
                 </p>
               </div>
             </div>
