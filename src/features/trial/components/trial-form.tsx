@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, Phone } from "lucide-react";
 
 export function TrialForm() {
   const [selectedChips, setSelectedChips] = useState<string[]>([
@@ -250,18 +252,15 @@ export function TrialForm() {
             (chip) => {
               const active = selectedChips.includes(chip);
               return (
-                <button
+                <Button
                   type="button"
                   key={chip}
+                  variant={active ? "default" : "outline"}
                   onClick={() => toggleChip(chip)}
-                  className={`cursor-pointer rounded-lg border px-4 py-2.5 text-xs font-bold transition-all duration-200 ${
-                    active
-                      ? "border-lime-400 bg-lime-400 text-black shadow-md"
-                      : "dark:bg-background/60 border border-slate-200 bg-slate-100/50 text-slate-600 hover:bg-slate-200 hover:text-black dark:border-slate-800 dark:text-zinc-400 dark:hover:text-white"
-                  }`}
+                  className={`text-xs font-bold ${active ? "bg-lime-400 text-black shadow-md" : ""}`}
                 >
                   {chip} {active && "✓"}
-                </button>
+                </Button>
               );
             },
           )}
@@ -270,24 +269,16 @@ export function TrialForm() {
 
       {/* Action Buttons */}
       <div className="flex flex-col gap-4 sm:flex-row">
-        <button
+        <Button
           type="submit"
           disabled={isSubmitting}
           className="group flex flex-1 cursor-pointer items-center justify-between rounded-xl bg-lime-400 py-2 pr-2 pl-6 text-sm font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.3)] transition-all duration-200 select-none hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.97] disabled:opacity-50"
         >
           <span>{isSubmitting ? "Đang xử lý..." : "Đăng ký dùng thử"}</span>
           <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-black/10 transition-transform duration-200 group-hover:translate-x-0.5">
-            <svg
-              className="h-4 w-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path d="M5 12h14M12 5l7 7-7 7" />
-            </svg>
+            <ArrowRight className="h-4 w-4" />
           </span>
-        </button>
+        </Button>
 
         <a
           href="tel:19001234"
@@ -297,15 +288,7 @@ export function TrialForm() {
           }}
           className="flex flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-4 text-slate-800 transition-all duration-200 select-none hover:bg-slate-50 active:translate-y-px active:scale-[0.97] dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-white dark:hover:bg-[#1E293B]"
         >
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-          >
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
+          <Phone className="h-4 w-4" />
           Gọi ngay
         </a>
       </div>

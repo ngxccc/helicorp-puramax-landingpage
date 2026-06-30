@@ -6,6 +6,9 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import { BarChart } from "lucide-react";
+
 interface LogEvent {
   id: string;
   text: string;
@@ -98,26 +101,21 @@ export function ActivityTracker() {
     <div className="fixed bottom-6 left-4 z-40 text-left font-sans">
       <Popover open={isOpen} onOpenChange={setIsOpen}>
         <PopoverTrigger asChild>
-          <button
+          <Button
             id="tracker-toggle-btn"
-            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-lime-400 text-black shadow-lg transition-all active:scale-95"
+            variant="default"
+            size="icon"
+            className="h-12 w-12 bg-lime-400 text-black shadow-lg active:scale-95"
             title="Nhật ký hành vi thời gian thực"
+            onClick={() => setIsOpen(!isOpen)}
           >
-            <svg
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-            >
-              <path d="M12 20h9M3 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8M3 20h6M13 20v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4" />
-            </svg>
+            <BarChart className="h-5 w-5" />
             {logs.length > 0 && (
               <span className="absolute -top-1 -right-1 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
                 {logs.length}
               </span>
             )}
-          </button>
+          </Button>
         </PopoverTrigger>
         <PopoverContent
           side="top"
@@ -137,13 +135,14 @@ export function ActivityTracker() {
               </span>
             </div>
             {logs.length > 0 && (
-              <button
+              <Button
                 id="clear-tracker-btn"
+                variant="ghost"
                 onClick={() => setLogs([])}
-                className="cursor-pointer text-[9px] font-bold text-red-500 hover:text-red-400"
+                className="text-[9px] font-bold text-red-500 hover:text-red-400"
               >
                 Xóa sạch
-              </button>
+              </Button>
             )}
           </div>
 
