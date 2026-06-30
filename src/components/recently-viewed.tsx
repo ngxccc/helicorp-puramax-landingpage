@@ -110,7 +110,7 @@ export function RecentlyViewed() {
                         title="Yêu thích"
                       >
                         <svg
-                          className={`h-4 w-4 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-none stroke-currentColor"}`}
+                          className={`h-4 w-4 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
                           viewBox="0 0 24 24"
                           strokeWidth="2"
                         >
@@ -184,7 +184,7 @@ export function RecentlyViewed() {
                           className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-red-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-zinc-400"
                         >
                           <svg
-                            className={`h-3.5 w-3.5 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-none stroke-currentColor"}`}
+                            className={`h-3.5 w-3.5 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
                             viewBox="0 0 24 24"
                             strokeWidth="2"
                           >

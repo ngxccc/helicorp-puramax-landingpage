@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 export function Navbar() {
   const { isDark, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { cart, favorites, updateQuantity, removeFromCart, addToCart, toggleFavorite } = useEcom();
+  const { cart, favorites, updateQuantity, removeFromCart, toggleFavorite } = useEcom();
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -87,7 +87,7 @@ export function Navbar() {
                   className="relative flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 hover:text-slate-800 dark:border-slate-800/80 dark:bg-slate-900/50 dark:text-zinc-400 dark:hover:bg-slate-950 dark:hover:text-white"
                 >
                   <svg
-                    className={`h-4.5 w-4.5 ${mounted && favorites.length > 0 ? "fill-red-500 stroke-red-500 text-red-500" : "fill-none stroke-currentColor"}`}
+                    className={`h-4.5 w-4.5 ${mounted && favorites.length > 0 ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                   >
@@ -123,19 +123,6 @@ export function Navbar() {
                           <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">{item.price.toLocaleString('vi-VN')}đ</span>
                         </div>
                         <div className="flex gap-1.5">
-                          <button
-                            aria-label="Thêm vào giỏ hàng"
-                            onClick={() => {
-                              addToCart(item);
-                              toggleFavorite(item);
-                            }}
-                            className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg bg-lime-400 text-black transition-all hover:bg-lime-500"
-                            title="Thêm vào giỏ"
-                          >
-                            <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                              <path d="M5 12h14M12 5v14" />
-                            </svg>
-                          </button>
                           <button
                             aria-label="Xóa khỏi yêu thích"
                             onClick={() => toggleFavorite(item)}
@@ -296,7 +283,7 @@ export function Navbar() {
             {/* CTA Button */}
             <button
               onClick={() => scrollTo("dung-thu")}
-              className="group flex cursor-pointer items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.98] sm:px-5 sm:py-2.5 sm:text-sm"
+              className="group hidden sm:flex cursor-pointer items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.98] sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Dùng thử
               <svg

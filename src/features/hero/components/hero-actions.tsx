@@ -88,7 +88,7 @@ export function HeroActions() {
         <span>Lưu thích</span>
         <div className="flex h-6 w-6 sm:h-8 sm:w-8 items-center justify-center rounded-full bg-black/5 dark:bg-white/10 transition-transform duration-200">
           <svg
-            className={`h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 ${isFavorite ? "fill-red-500 stroke-red-500 text-red-500" : "fill-none stroke-currentColor"}`}
+            className={`h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 ${isFavorite ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
             viewBox="0 0 24 24"
             strokeWidth="2"
           >
