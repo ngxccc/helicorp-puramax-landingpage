@@ -79,6 +79,7 @@ export function Navbar() {
             {/* Theme Toggle Button */}
             <div className="flex items-center gap-1 rounded-full border border-slate-200/60 bg-slate-100/80 p-0.5 transition-colors dark:border-slate-800/80 dark:bg-slate-950/80">
               <button
+                aria-label="Giao diện sáng"
                 onClick={() => setTheme("light")}
                 className={`flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 active:translate-y-px active:scale-[0.98] sm:px-3 ${
                   (!mounted ? false : !isDark)
@@ -99,6 +100,7 @@ export function Navbar() {
                 <span className="hidden sm:inline">Sáng</span>
               </button>
               <button
+                aria-label="Giao diện tối"
                 onClick={() => setTheme("dark")}
                 className={`flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 active:translate-y-px active:scale-[0.98] sm:px-3 ${
                   (!mounted ? true : isDark)
