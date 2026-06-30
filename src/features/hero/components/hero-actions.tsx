@@ -17,7 +17,8 @@ export function HeroActions() {
       price: 7990000,
       image: "/phienbancaitien.webp"
     });
-  }, [addViewedProduct]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:gap-4">

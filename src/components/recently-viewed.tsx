@@ -1,13 +1,19 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { useEcom } from "./ecom-context";
 import { toast } from "sonner";
 
 export function RecentlyViewed() {
   const { viewed, addToCart, toggleFavorite, favorites } = useEcom();
+  const [mounted, setMounted] = useState(false);
 
-  // Filter out to avoid rendering anything if there are no viewed items
-  if (viewed.length === 0) return null;
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Filter out to avoid rendering anything if there are no viewed items or not mounted
+  if (!mounted || viewed.length === 0) return null;
 
   const mockRecommendations = [
     {
