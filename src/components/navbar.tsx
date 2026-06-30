@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "./theme-provider";
 import { useEcom } from "./ecom-context";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
+import Image from "next/image";
 
 export function Navbar() {
   const { isDark, setTheme } = useTheme();
@@ -117,7 +118,7 @@ export function Navbar() {
                   <div className="flex flex-col gap-3 max-h-60 overflow-y-auto scrollbar-none">
                     {favorites.map((item) => (
                       <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
-                        <img src={item.image} alt={item.name} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
+                        <Image src={item.image} alt={item.name} width={48} height={48} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
                         <div className="flex-1 text-left">
                           <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
                           <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">{item.price.toLocaleString('vi-VN')}đ</span>
@@ -176,7 +177,7 @@ export function Navbar() {
                     <div className="flex flex-col gap-3 max-h-48 overflow-y-auto scrollbar-none">
                       {cart.map((item) => (
                         <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
-                          <img src={item.image} alt={item.name} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
+                          <Image src={item.image} alt={item.name} width={48} height={48} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
                           <div className="flex-1 text-left">
                             <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
                             <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
