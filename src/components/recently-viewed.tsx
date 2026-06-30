@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useEcom } from "./ecom-context";
 import { toast } from "sonner";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 
 export function RecentlyViewed() {
   const { viewed, addToCart, toggleFavorite, favorites } = useEcom();
@@ -137,11 +138,11 @@ export function RecentlyViewed() {
               {mockRecommendations.map((prod) => {
                 const isFav = favorites.some((f) => f.id === prod.id);
                 return (
-                  <div
+                  <Card
                     key={prod.id}
-                    className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition-all duration-300 hover:shadow-md dark:border-white/5 dark:bg-[#131B2E]/40"
+                    className="flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:shadow-md dark:border-white/5 dark:bg-[#131B2E]/40"
                   >
-                    <div>
+                    <CardHeader className="p-4 pb-0">
                       <div className="overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-950 aspect-square mb-3">
                         <img
                           src={prod.image}
@@ -149,51 +150,52 @@ export function RecentlyViewed() {
                           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
-                      <h3 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 min-h-8">
+                      <CardTitle className="text-sm sm:text-base font-bold text-slate-900 dark:text-white line-clamp-2 min-h-10 sm:min-h-12 leading-snug">
                         {prod.name}
-                      </h3>
-                      <p className="mt-1 text-[10px] text-slate-600 dark:text-zinc-400 line-clamp-1">
+                      </CardTitle>
+                      <CardDescription className="mt-1 text-xs sm:text-sm text-slate-600 dark:text-zinc-400 line-clamp-1">
                         {prod.desc}
-                      </p>
-                    </div>
+                      </CardDescription>
+                    </CardHeader>
                     
-                    <div className="mt-4">
-                      <span className="block text-xs font-extrabold text-lime-600 dark:text-lime-400 mb-2">
+                    <CardContent className="p-4 pt-2 pb-0">
+                      <span className="block text-sm sm:text-base font-extrabold text-lime-600 dark:text-lime-400">
                         {prod.price.toLocaleString("vi-VN")}đ
                       </span>
-                      <div className="flex gap-2">
-                        <button
-                          onClick={() => {
-                            addToCart({ ...prod, quantity: 1 });
-                            toast.success(`Đã thêm ${prod.name} vào giỏ hàng!`);
-                          }}
-                          className="flex-1 cursor-pointer rounded-lg bg-lime-400 py-1.5 text-center text-[10px] font-extrabold text-black hover:bg-lime-500 transition-colors"
+                    </CardContent>
+                    
+                    <CardFooter className="p-4 pt-3 flex gap-2">
+                      <button
+                        onClick={() => {
+                          addToCart({ ...prod, quantity: 1 });
+                          toast.success(`Đã thêm ${prod.name} vào giỏ hàng!`);
+                        }}
+                        className="flex-1 cursor-pointer rounded-lg bg-lime-400 py-2 sm:py-2.5 text-center text-xs sm:text-sm font-extrabold text-black hover:bg-lime-500 transition-colors"
+                      >
+                        Mua ngay
+                      </button>
+                      <button
+                        aria-label="Thêm vào danh sách yêu thích"
+                        onClick={() => {
+                          toggleFavorite(prod);
+                          if (isFav) {
+                            toast.info("Đã xóa khỏi danh sách yêu thích!");
+                          } else {
+                            toast.success("Đã thêm vào danh sách yêu thích!");
+                          }
+                        }}
+                        className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-red-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-zinc-400"
+                      >
+                        <svg
+                          className={`h-3.5 w-3.5 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
+                          viewBox="0 0 24 24"
+                          strokeWidth="2"
                         >
-                          Mua ngay
-                        </button>
-                        <button
-                          aria-label="Thêm vào danh sách yêu thích"
-                          onClick={() => {
-                            toggleFavorite(prod);
-                            if (isFav) {
-                              toast.info("Đã xóa khỏi danh sách yêu thích!");
-                            } else {
-                              toast.success("Đã thêm vào danh sách yêu thích!");
-                            }
-                          }}
-                          className="flex h-7.5 w-7.5 cursor-pointer items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-500 hover:text-red-500 dark:border-slate-800 dark:bg-slate-900/50 dark:text-zinc-400"
-                        >
-                          <svg
-                            className={`h-3.5 w-3.5 ${isFav ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
-                            viewBox="0 0 24 24"
-                            strokeWidth="2"
-                          >
-                            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                        </svg>
+                      </button>
+                    </CardFooter>
+                  </Card>
                 );
               })}
             </div>
