@@ -46,7 +46,7 @@ export function Footer() {
 
           {/* Links Column 1: Navigation (3 cols) */}
           <div className="flex flex-col text-left md:col-span-3">
-            <span className="mb-4 text-xs font-bold tracking-widest text-slate-400 uppercase dark:text-zinc-500">
+            <span className="mb-4 text-xs font-bold tracking-widest text-slate-600 uppercase dark:text-zinc-400">
               Sản phẩm
             </span>
             <ul className="flex flex-col gap-3 text-sm font-semibold">
@@ -87,7 +87,7 @@ export function Footer() {
 
           {/* Links Column 2: Legal & Contact (3 cols) */}
           <div className="flex flex-col text-left md:col-span-3">
-            <span className="mb-4 text-xs font-bold tracking-widest text-slate-400 uppercase dark:text-zinc-500">
+            <span className="mb-4 text-xs font-bold tracking-widest text-slate-600 uppercase dark:text-zinc-400">
               Thông tin & Pháp lý
             </span>
             <ul className="flex flex-col gap-3 text-sm font-semibold">
@@ -115,7 +115,7 @@ export function Footer() {
                   Điều khoản sử dụng
                 </a>
               </li>
-              <li className="pt-1 text-xs font-medium text-slate-500 dark:text-zinc-500">
+              <li className="pt-1 text-xs font-medium text-slate-600 dark:text-zinc-400">
                 Hotline:{" "}
                 <a
                   href="tel:19001234"
@@ -124,7 +124,7 @@ export function Footer() {
                   1900 1234
                 </a>
               </li>
-              <li className="text-xs font-medium text-slate-500 dark:text-zinc-500">
+              <li className="text-xs font-medium text-slate-600 dark:text-zinc-400">
                 Email:{" "}
                 <a
                   href="mailto:contact@helicorp.vn"
@@ -143,7 +143,7 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col gap-6 text-xs font-semibold sm:flex-row sm:items-center sm:justify-between">
           {/* Copyright */}
-          <div className="text-left font-medium text-slate-400 dark:text-zinc-500">
+          <div className="text-left font-medium text-slate-600 dark:text-zinc-400">
             © {currentYear} HeLiCorp PETKIT Việt Nam. Tất cả quyền được bảo lưu.
           </div>
 

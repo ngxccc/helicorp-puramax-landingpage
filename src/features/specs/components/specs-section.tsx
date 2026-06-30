@@ -24,7 +24,7 @@ export function SpecsSection() {
         {/* Card 1: Kích thước máy (7 cols) */}
         <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-7 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-600 uppercase dark:text-zinc-400">
               Kích thước máy
             </span>
             <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
@@ -40,7 +40,7 @@ export function SpecsSection() {
         {/* Card 2: Dung tích trong (5 cols) */}
         <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-5 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-600 uppercase dark:text-zinc-400">
               DUNG TÍCH LỒNG & KHAY RÁC
             </span>
             <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
@@ -57,7 +57,7 @@ export function SpecsSection() {
         {/* Card 3: Loại cát phù hợp (5 cols) */}
         <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-5 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-600 uppercase dark:text-zinc-400">
               Loại cát phù hợp
             </span>
             <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
@@ -73,7 +73,7 @@ export function SpecsSection() {
         {/* Card 4: Kết nối (7 cols) */}
         <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-7 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-600 uppercase dark:text-zinc-400">
               Kết nối
             </span>
             <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">

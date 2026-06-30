@@ -20,8 +20,9 @@ export default function Home() {
         {/* Navigation Bar */}
         <Navbar />
 
-        {/* Hero Section Container */}
-        <section
+        <main>
+          {/* Hero Section Container */}
+          <section
           id="tong-quan"
           className="xl:max-w-8xl relative mx-auto max-w-7xl px-4 pt-6 pb-12 sm:px-6 md:pt-10 md:pb-16 lg:px-8 lg:pt-12 lg:pb-20"
         >
@@ -41,9 +42,9 @@ export default function Home() {
                 <span className="mb-2.5 inline-flex rounded-full bg-lime-400/10 px-3 py-1 text-[10px] font-bold tracking-widest text-lime-600 uppercase dark:text-lime-400">
                   Cuộn kể chuyện
                 </span>
-                <h3 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                <h2 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                   Mở lớp máy
-                </h3>
+                </h2>
                 <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                   Khi cuộn trang, lớp vỏ tách ra để lộ lồng xoay, lưới mềm, bình
                   xịt và thùng chứa, mô phỏng sinh động từng chi tiết thiết kế
@@ -58,9 +59,9 @@ export default function Home() {
                 <span className="mb-2.5 inline-flex rounded-full bg-lime-400/10 px-3 py-1 text-[10px] font-bold tracking-widest text-lime-600 uppercase dark:text-lime-400">
                   Tương tác
                 </span>
-                <h3 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                <h2 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
                   Radar cảm biến
-                </h3>
+                </h2>
                 <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                   Hotspot phát sáng mô phỏng vùng quét cảm biến, kiểm tra trọng
                   lượng thông minh và logic chống kẹp độc quyền hoạt động theo
@@ -81,8 +82,8 @@ export default function Home() {
         <SpecsSection />
 
         {/* Register Trial Section */}
-        <TrialSection />
-
+          <TrialSection />
+        </main>
         {/* Footer Section */}
         <Footer />
 

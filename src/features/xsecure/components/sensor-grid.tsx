@@ -25,7 +25,7 @@ export function SensorGrid() {
             <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
           </svg>
         </div>
-        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-500">
+        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
           Nhiệt
         </span>
         <span className="block text-sm font-bold text-slate-800 dark:text-slate-200">Nhiệt sinh học</span>
@@ -51,7 +51,7 @@ export function SensorGrid() {
             <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
           </svg>
         </div>
-        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-500">
+        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
           Hồng ngoại
         </span>
         <span className="block text-sm font-bold text-slate-800 dark:text-slate-200">Quét cửa vào</span>
@@ -77,7 +77,7 @@ export function SensorGrid() {
             <circle cx="12" cy="7" r="4" />
           </svg>
         </div>
-        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-500">
+        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
           Trọng lượng
         </span>
         <span className="block text-sm font-bold text-slate-800 dark:text-slate-200">Mèo 1.5 - 10 kg</span>
@@ -103,7 +103,7 @@ export function SensorGrid() {
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
         </div>
-        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-500 dark:text-zinc-500">
+        <span className="mb-1 block text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-zinc-400">
           Chống kẹp
         </span>
         <span className="block text-sm font-bold text-slate-800 dark:text-slate-200">Phản hồi lực cản</span>
