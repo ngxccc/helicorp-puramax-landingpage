@@ -76,6 +76,7 @@ export function RecentlyViewed() {
                     
                     <div className="flex flex-col gap-2">
                       <button
+                        aria-label="Thêm vào giỏ hàng"
                         onClick={() => {
                           addToCart({ ...item, quantity: 1 });
                           toast.success(`Đã thêm ${item.name} vào giỏ hàng!`);
@@ -90,6 +91,7 @@ export function RecentlyViewed() {
                         </svg>
                       </button>
                       <button
+                        aria-label="Thêm vào danh sách yêu thích"
                         onClick={() => {
                           toggleFavorite(item);
                           if (isFav) {
@@ -144,7 +146,7 @@ export function RecentlyViewed() {
                       <h3 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-2 min-h-8">
                         {prod.name}
                       </h3>
-                      <p className="mt-1 text-[10px] text-slate-400 dark:text-zinc-500 line-clamp-1">
+                      <p className="mt-1 text-[10px] text-slate-600 dark:text-zinc-400 line-clamp-1">
                         {prod.desc}
                       </p>
                     </div>
@@ -164,6 +166,7 @@ export function RecentlyViewed() {
                           Mua ngay
                         </button>
                         <button
+                          aria-label="Thêm vào danh sách yêu thích"
                           onClick={() => {
                             toggleFavorite(prod);
                             if (isFav) {

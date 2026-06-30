@@ -119,11 +119,12 @@ export function Navbar() {
                       <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
                         <img src={item.image} alt={item.name} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
                         <div className="flex-1 text-left">
-                          <h5 className="text-xs font-bold text-slate-955 dark:text-white line-clamp-1">{item.name}</h5>
+                          <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
                           <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">{item.price.toLocaleString('vi-VN')}đ</span>
                         </div>
                         <div className="flex gap-1.5">
                           <button
+                            aria-label="Thêm vào giỏ hàng"
                             onClick={() => {
                               addToCart(item);
                               toggleFavorite(item);
@@ -136,6 +137,7 @@ export function Navbar() {
                             </svg>
                           </button>
                           <button
+                            aria-label="Xóa khỏi yêu thích"
                             onClick={() => toggleFavorite(item)}
                             className="flex h-7 w-7 cursor-pointer items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 hover:text-red-500 dark:border-slate-800 dark:text-zinc-500 dark:hover:bg-slate-950"
                             title="Xóa"
@@ -189,20 +191,22 @@ export function Navbar() {
                         <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
                           <img src={item.image} alt={item.name} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
                           <div className="flex-1 text-left">
-                            <h5 className="text-xs font-bold text-slate-955 dark:text-white line-clamp-1">{item.name}</h5>
+                            <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
                             <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
                               {(item.price * (item.quantity ?? 1)).toLocaleString('vi-VN')}đ
                             </span>
                             {/* Quantity Controls */}
                             <div className="mt-1 flex items-center gap-2">
                               <button
+                                aria-label="Giảm số lượng"
                                 onClick={() => updateQuantity(item.id, -1)}
                                 className="flex h-5 w-5 cursor-pointer items-center justify-center rounded bg-slate-100 text-xs font-bold text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-zinc-300 dark:hover:bg-slate-700"
                               >
-                                +-
+                                -
                               </button>
                               <span className="text-xs font-semibold">{item.quantity}</span>
                               <button
+                                aria-label="Tăng số lượng"
                                 onClick={() => updateQuantity(item.id, 1)}
                                 className="flex h-5 w-5 cursor-pointer items-center justify-center rounded bg-slate-100 text-xs font-bold text-slate-700 hover:bg-slate-200 dark:bg-slate-800 dark:text-zinc-300 dark:hover:bg-slate-700"
                               >
@@ -211,6 +215,7 @@ export function Navbar() {
                             </div>
                           </div>
                           <button
+                            aria-label="Xóa khỏi giỏ hàng"
                             onClick={() => removeFromCart(item.id)}
                             className="text-xs text-slate-400 hover:text-red-500 dark:text-zinc-500 cursor-pointer"
                             title="Xóa khỏi giỏ"
