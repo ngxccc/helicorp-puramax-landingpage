@@ -7,7 +7,7 @@ import { SpecsSection } from "@/features/specs/components/specs-section";
 import { TrialSection } from "@/features/trial/components/trial-section";
 import { ChatProvider } from "@/components/chat-context";
 import { Toaster } from "@/components/ui/sonner";
-import { ScrollytellingSection } from "@/features/scrollytelling/components/scrollytelling-section";
+import { ScrollytellingWrapper } from "@/features/scrollytelling/components/scrollytelling-wrapper";
 import { ClientSideComponents } from "@/components/client-side-components";
 
 export default function Home() {
@@ -72,7 +72,7 @@ export default function Home() {
         </section>
 
         {/* Scrollytelling Section */}
-        <ScrollytellingSection />
+        <ScrollytellingWrapper />
 
         {/* xSecure Section */}
         <XSecureSection />
