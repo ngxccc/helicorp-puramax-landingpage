@@ -1,6 +1,6 @@
 "use client";
-/* eslint-disable react-hooks/set-state-in-effect */
-import React, {
+
+import {
   createContext,
   useContext,
   useState,
@@ -39,6 +39,7 @@ export function EcomProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const storedCart = localStorage.getItem("ecom_cart");
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       if (storedCart) setCart(JSON.parse(storedCart) as EcomItem[]);
 
       const storedFavs = localStorage.getItem("ecom_favs");
