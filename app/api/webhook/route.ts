@@ -14,14 +14,12 @@ async function ensureDataSetup() {
 // Helper to read, append, and save data to JSON file
 async function saveRecord(filePath: string, record: unknown) {
   await ensureDataSetup();
-  let data: unknown[] = [];
+  let data: unknown[];
   try {
     const fileContent = await fs.readFile(filePath, "utf8");
-    data = JSON.parse(fileContent);
-    if (!Array.isArray(data)) {
-      data = [];
-    }
-  } catch (error) {
+    const parsed = JSON.parse(fileContent) as unknown;
+    data = Array.isArray(parsed) ? parsed : [];
+  } catch {
     data = [];
   }
   data.push(record);
@@ -47,17 +45,17 @@ export async function POST(request: Request) {
     // If it's a user behavior tracking event, log it and return success
     if (type === "track") {
       const trackingRecord = {
-        id: "tr_" + Date.now().toString(36) + Math.random().toString(36).substring(2, 5),
+        id:
+          "tr_" +
+          Date.now().toString(36) +
+          Math.random().toString(36).substring(2, 5),
         timestamp: new Date().toISOString(),
         eventName,
-        metadata: body.metadata ?? {}
+        metadata: body.metadata ?? {},
       };
 
       await saveRecord(TRACKING_FILE, trackingRecord);
 
-      console.log(
-        `[Behavior Tracking Webhook]: Event "${eventName}" recorded at ${trackingRecord.timestamp}`
-      );
       return NextResponse.json({
         success: true,
         message: "Tracking event received and stored",
@@ -105,22 +103,29 @@ export async function POST(request: Request) {
     }
 
     const registrationRecord = {
-      id: "reg_" + Date.now().toString(36) + Math.random().toString(36).substring(2, 5),
+      id:
+        "reg_" +
+        Date.now().toString(36) +
+        Math.random().toString(36).substring(2, 5),
       timestamp: new Date().toISOString(),
       name,
       phone,
       email,
       cats,
-      selectedChips
+      selectedChips,
     };
 
     await saveRecord(REGISTRATIONS_FILE, registrationRecord);
 
-    console.log("Webhook Received and Saved Valid Form Registration:", registrationRecord);
+    console.log(
+      "Webhook Received and Saved Valid Form Registration:",
+      registrationRecord,
+    );
 
     return NextResponse.json({
       success: true,
-      message: "Đăng ký thành công! Dữ liệu đã được lưu trữ hợp lệ vào cơ sở dữ liệu dự án.",
+      message:
+        "Đăng ký thành công! Dữ liệu đã được lưu trữ hợp lệ vào cơ sở dữ liệu dự án.",
     });
   } catch (error) {
     console.error("Webhook route error:", error);

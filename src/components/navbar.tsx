@@ -8,7 +8,8 @@ import Image from "next/image";
 export function Navbar() {
   const { isDark, setTheme } = useTheme();
   const isClient = useIsClient();
-  const { cart, favorites, updateQuantity, removeFromCart, toggleFavorite } = useEcom();
+  const { cart, favorites, updateQuantity, removeFromCart, toggleFavorite } =
+    useEcom();
 
   const scrollTo = (id: string) => {
     const el = document.getElementById(id);
@@ -83,7 +84,7 @@ export function Navbar() {
                   className="relative flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 hover:text-slate-800 dark:border-slate-800/80 dark:bg-slate-900/50 dark:text-zinc-400 dark:hover:bg-slate-950 dark:hover:text-white"
                 >
                   <svg
-                    className={`h-4.5 w-4.5 ${isClient && favorites.length > 0 ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 dark:fill-zinc-700 stroke-slate-400 dark:stroke-zinc-500"}`}
+                    className={`h-4.5 w-4.5 ${isClient && favorites.length > 0 ? "fill-red-500 stroke-red-500 text-red-500" : "fill-slate-300 stroke-slate-400 dark:fill-zinc-700 dark:stroke-zinc-500"}`}
                     viewBox="0 0 24 24"
                     strokeWidth="2"
                   >
@@ -110,13 +111,26 @@ export function Navbar() {
                     Chưa có sản phẩm yêu thích nào.
                   </p>
                 ) : (
-                  <div className="flex flex-col gap-3 max-h-60 overflow-y-auto scrollbar-none">
+                  <div className="flex max-h-60 scrollbar-none flex-col gap-3 overflow-y-auto">
                     {favorites.map((item) => (
-                      <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
-                        <Image src={item.image} alt={item.name} width={48} height={48} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
+                      <div
+                        key={item.id}
+                        className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          width={48}
+                          height={48}
+                          className="h-12 w-12 rounded-lg bg-slate-50 object-cover dark:bg-slate-950"
+                        />
                         <div className="flex-1 text-left">
-                          <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
-                          <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">{item.price.toLocaleString('vi-VN')}đ</span>
+                          <h5 className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
+                            {item.name}
+                          </h5>
+                          <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
+                            {item.price.toLocaleString("vi-VN")}đ
+                          </span>
                         </div>
                         <div className="flex gap-1.5">
                           <button
@@ -142,14 +156,25 @@ export function Navbar() {
                   aria-label="Giỏ hàng"
                   className="relative flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 hover:text-slate-800 dark:border-slate-800/80 dark:bg-slate-900/50 dark:text-zinc-400 dark:hover:bg-slate-950 dark:hover:text-white"
                 >
-                  <svg className="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg
+                    className="h-4.5 w-4.5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
                     <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
                     <line x1="3" y1="6" x2="21" y2="6" />
                     <path d="M16 10a4 4 0 0 1-8 0" />
                   </svg>
                   {isClient && cart.length > 0 && (
                     <span className="absolute -top-1.5 -right-1.5 flex h-4.5 w-4.5 items-center justify-center rounded-full bg-lime-400 text-[10px] font-bold text-black">
-                      {cart.reduce((sum, item) => sum + (item.quantity ?? 1), 0)}
+                      {cart.reduce(
+                        (sum, item) => sum + (item.quantity ?? 1),
+                        0,
+                      )}
                     </span>
                   )}
                 </button>
@@ -161,7 +186,11 @@ export function Navbar() {
                 className="w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-[#131B2E]"
               >
                 <h4 className="mb-3 text-sm font-bold text-slate-900 dark:text-white">
-                  Giỏ hàng ({isClient ? cart.reduce((sum, item) => sum + (item.quantity ?? 1), 0) : 0})
+                  Giỏ hàng (
+                  {isClient
+                    ? cart.reduce((sum, item) => sum + (item.quantity ?? 1), 0)
+                    : 0}
+                  )
                 </h4>
                 {!isClient || cart.length === 0 ? (
                   <p className="py-4 text-center text-xs text-slate-500 dark:text-zinc-400">
@@ -169,14 +198,28 @@ export function Navbar() {
                   </p>
                 ) : (
                   <div className="flex flex-col gap-3">
-                    <div className="flex flex-col gap-3 max-h-48 overflow-y-auto scrollbar-none">
+                    <div className="flex max-h-48 scrollbar-none flex-col gap-3 overflow-y-auto">
                       {cart.map((item) => (
-                        <div key={item.id} className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40">
-                          <Image src={item.image} alt={item.name} width={48} height={48} className="h-12 w-12 rounded-lg object-cover bg-slate-50 dark:bg-slate-950" />
+                        <div
+                          key={item.id}
+                          className="flex items-center gap-3 border-b border-slate-100 pb-2 dark:border-slate-800/40"
+                        >
+                          <Image
+                            src={item.image}
+                            alt={item.name}
+                            width={48}
+                            height={48}
+                            className="h-12 w-12 rounded-lg bg-slate-50 object-cover dark:bg-slate-950"
+                          />
                           <div className="flex-1 text-left">
-                            <h5 className="text-xs font-bold text-slate-900 dark:text-white line-clamp-1">{item.name}</h5>
+                            <h5 className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
+                              {item.name}
+                            </h5>
                             <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
-                              {(item.price * (item.quantity ?? 1)).toLocaleString('vi-VN')}đ
+                              {(
+                                item.price * (item.quantity ?? 1)
+                              ).toLocaleString("vi-VN")}
+                              đ
                             </span>
                             {/* Quantity Controls */}
                             <div className="mt-1 flex items-center gap-2">
@@ -187,7 +230,9 @@ export function Navbar() {
                               >
                                 -
                               </button>
-                              <span className="text-xs font-semibold">{item.quantity}</span>
+                              <span className="text-xs font-semibold">
+                                {item.quantity}
+                              </span>
                               <button
                                 aria-label="Tăng số lượng"
                                 onClick={() => updateQuantity(item.id, 1)}
@@ -200,7 +245,7 @@ export function Navbar() {
                           <button
                             aria-label="Xóa khỏi giỏ hàng"
                             onClick={() => removeFromCart(item.id)}
-                            className="text-xs text-slate-400 hover:text-red-500 dark:text-zinc-500 cursor-pointer"
+                            className="cursor-pointer text-xs text-slate-400 hover:text-red-500 dark:text-zinc-500"
                             title="Xóa khỏi giỏ"
                           >
                             ✕
@@ -211,10 +256,19 @@ export function Navbar() {
 
                     {/* Total & Checkout */}
                     <div className="mt-2 border-t border-slate-100 pt-3 dark:border-slate-800">
-                      <div className="flex items-center justify-between text-xs font-bold mb-3">
-                        <span className="text-slate-600 dark:text-zinc-400">Tổng tiền:</span>
+                      <div className="mb-3 flex items-center justify-between text-xs font-bold">
+                        <span className="text-slate-600 dark:text-zinc-400">
+                          Tổng tiền:
+                        </span>
                         <span className="text-sm text-lime-600 dark:text-lime-400">
-                          {cart.reduce((sum, item) => sum + (item.price * (item.quantity ?? 1)), 0).toLocaleString('vi-VN')}đ
+                          {cart
+                            .reduce(
+                              (sum, item) =>
+                                sum + item.price * (item.quantity ?? 1),
+                              0,
+                            )
+                            .toLocaleString("vi-VN")}
+                          đ
                         </span>
                       </div>
                       <button
@@ -271,7 +325,7 @@ export function Navbar() {
             {/* CTA Button */}
             <button
               onClick={() => scrollTo("dung-thu")}
-              className="group hidden sm:flex cursor-pointer items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.98] sm:px-5 sm:py-2.5 sm:text-sm"
+              className="group hidden cursor-pointer items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.98] sm:flex sm:px-5 sm:py-2.5 sm:text-sm"
             >
               Dùng thử
               <svg

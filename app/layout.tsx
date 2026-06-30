@@ -55,9 +55,7 @@ export default function RootLayout({
       </head>
       <body className="dark:bg-background flex min-h-full flex-col bg-white text-slate-900 transition-colors duration-300 selection:bg-lime-400 selection:text-black dark:text-white">
         <ThemeProvider>
-          <EcomProvider>
-            {children}
-          </EcomProvider>
+          <EcomProvider>{children}</EcomProvider>
         </ThemeProvider>
         <UserTracker />
       </body>

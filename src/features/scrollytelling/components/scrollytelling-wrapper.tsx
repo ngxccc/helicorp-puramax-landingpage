@@ -21,7 +21,7 @@ export function ScrollytellingWrapper() {
       if (window.cancelIdleCallback && typeof handle === "number") {
         window.cancelIdleCallback(handle);
       } else {
-        window.clearTimeout(handle as number);
+        window.clearTimeout(handle);
       }
     };
   }, []);

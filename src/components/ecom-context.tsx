@@ -1,6 +1,12 @@
 "use client";
-
-import React, { createContext, useContext, useState, useEffect, useCallback } from "react";
+/* eslint-disable react-hooks/set-state-in-effect */
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
 export interface EcomItem {
   id: string;
@@ -33,15 +39,15 @@ export function EcomProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const storedCart = localStorage.getItem("ecom_cart");
-      if (storedCart) setCart(JSON.parse(storedCart));
+      if (storedCart) setCart(JSON.parse(storedCart) as EcomItem[]);
 
       const storedFavs = localStorage.getItem("ecom_favs");
-      if (storedFavs) setFavorites(JSON.parse(storedFavs));
+      if (storedFavs) setFavorites(JSON.parse(storedFavs) as EcomItem[]);
 
       const storedViewed = localStorage.getItem("ecom_viewed");
-      if (storedViewed) setViewed(JSON.parse(storedViewed));
-    } catch (e) {
-      console.error("Error loading ecom state", e);
+      if (storedViewed) setViewed(JSON.parse(storedViewed) as EcomItem[]);
+    } catch {
+      console.error("Error loading ecom state");
     }
     setIsLoaded(true);
   }, []);
@@ -70,7 +76,7 @@ export function EcomProvider({ children }: { children: React.ReactNode }) {
       const existing = prev.find((i) => i.id === item.id);
       if (existing) {
         return prev.map((i) =>
-          i.id === item.id ? { ...i, quantity: (i.quantity ?? 1) + 1 } : i
+          i.id === item.id ? { ...i, quantity: (i.quantity ?? 1) + 1 } : i,
         );
       }
       return [...prev, { ...item, quantity: 1 }];
@@ -91,7 +97,7 @@ export function EcomProvider({ children }: { children: React.ReactNode }) {
           }
           return i;
         })
-        .filter((i) => (i.quantity ?? 0) > 0)
+        .filter((i) => (i.quantity ?? 0) > 0),
     );
   }, []);
 

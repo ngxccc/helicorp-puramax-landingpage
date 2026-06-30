@@ -10,9 +10,9 @@ export function ToastCommitmentCard() {
           "Toast minh hoạ hoạt động! Hệ thống thông báo thời gian thực.",
         )
       }
-      className="group bg-black/5 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10 p-1.5 rounded-2xl cursor-pointer select-none transition-all duration-200 active:scale-[0.98]"
+      className="group cursor-pointer rounded-2xl bg-black/5 p-1.5 ring-1 ring-black/5 transition-all duration-200 select-none active:scale-[0.98] dark:bg-white/5 dark:ring-white/10"
     >
-      <div className="flex items-center justify-between rounded-[calc(1rem-0.375rem)] bg-white dark:bg-[#131B2E]/60 p-4 border border-slate-200/50 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all group-hover:border-lime-400/40 dark:group-hover:border-lime-400/40 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_4px_12px_rgba(163,230,53,0.05)] dark:group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_4px_12px_rgba(163,230,53,0.05)]">
+      <div className="flex items-center justify-between rounded-[calc(1rem-0.375rem)] border border-slate-200/50 bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] transition-all group-hover:border-lime-400/40 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_4px_12px_rgba(163,230,53,0.05)] dark:border-white/10 dark:bg-[#131B2E]/60 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:group-hover:border-lime-400/40 dark:group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_4px_12px_rgba(163,230,53,0.05)]">
         <div>
           <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
             Theo dõi hành vi

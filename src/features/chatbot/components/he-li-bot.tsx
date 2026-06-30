@@ -54,10 +54,11 @@ export function HeLiBot() {
 
       let botReply = "";
       if (response.ok) {
-        const data = await response.json();
+        const data = (await response.json()) as { reply: string };
         botReply = data.reply;
       } else {
-        botReply = "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại sau hoặc đăng ký dùng thử để nhận tư vấn nhé!";
+        botReply =
+          "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại sau hoặc đăng ký dùng thử để nhận tư vấn nhé!";
       }
 
       // Remove the "..." placeholder
@@ -99,7 +100,13 @@ export function HeLiBot() {
       setChatMessages((prev) => {
         const updated = [...prev];
         updated.pop(); // Remove the "..." placeholder
-        return [...updated, { sender: "bot", text: "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại nhé!" }];
+        return [
+          ...updated,
+          {
+            sender: "bot",
+            text: "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại nhé!",
+          },
+        ];
       });
     }
   };
@@ -133,7 +140,7 @@ export function HeLiBot() {
 
   const handleSendMessage = (e?: React.SubmitEvent) => {
     if (e) e.preventDefault();
-    sendMessage(chatInput);
+    void sendMessage(chatInput);
   };
 
   return (
@@ -234,7 +241,7 @@ export function HeLiBot() {
                 key={suggestion}
                 onClick={() => {
                   if (draggedDistance < 5) {
-                    sendMessage(suggestion);
+                    void sendMessage(suggestion);
                   }
                 }}
                 variant="outline"

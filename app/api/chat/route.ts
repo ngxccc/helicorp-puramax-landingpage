@@ -14,22 +14,44 @@ Nếu câu hỏi không liên quan đến sản phẩm, hãy hướng dẫn khé
 function getFallbackReply(userMessage: string): string {
   const query = userMessage.toLowerCase();
 
-  if (query.includes("mèo") || query.includes("cân nặng") || query.includes("nặng") || query.includes("kg")) {
+  if (
+    query.includes("mèo") ||
+    query.includes("cân nặng") ||
+    query.includes("nặng") ||
+    query.includes("kg")
+  ) {
     return "Pura Max cực kỳ thích hợp cho mèo từ 1.5kg đến 10kg với khoang chứa rộng 76L thoải mái xoay đầu và hệ cảm biến đo trọng lượng thông minh.";
   }
-  if (query.includes("giá") || query.includes("bao nhiêu") || query.includes("tiền")) {
+  if (
+    query.includes("giá") ||
+    query.includes("bao nhiêu") ||
+    query.includes("tiền")
+  ) {
     return "PETKIT Pura Max chính hãng đang có giá ưu đãi đặc biệt tại HeLiCorp. Hãy nhập thông tin đăng ký ở form bên dưới để nhận ngay báo giá kèm ưu đãi phụ kiện 500k!";
   }
   if (query.includes("cát") || query.includes("loại cát")) {
     return "Máy tương thích hoàn hảo với hầu hết các loại cát vón trên thị trường: cát đất sét (khoáng), cát đậu nành/đậu phụ dạng hạt mịn, và cát hỗn hợp.";
   }
-  if (query.includes("khử mùi") || query.includes("hôi") || query.includes("mùi")) {
+  if (
+    query.includes("khử mùi") ||
+    query.includes("hôi") ||
+    query.includes("mùi")
+  ) {
     return "Pura Max tích hợp bộ xịt khử mùi Smart Spray tự động phun tinh dầu hương tự nhiên sau mỗi chu kỳ đi vệ sinh của mèo, loại bỏ mùi hôi tức thì.";
   }
-  if (query.includes("bảo hành") || query.includes("chính hãng") || query.includes("sửa")) {
+  if (
+    query.includes("bảo hành") ||
+    query.includes("chính hãng") ||
+    query.includes("sửa")
+  ) {
     return "Sản phẩm phân phối chính hãng bởi HeLiCorp được bảo hành 12 tháng tại nhà, cam kết 1 đổi 1 trong 30 ngày đầu tiên nếu có lỗi kỹ thuật.";
   }
-  if (query.includes("ship") || query.includes("giao hàng") || query.includes("lắp đặt") || query.includes("giao")) {
+  if (
+    query.includes("ship") ||
+    query.includes("giao hàng") ||
+    query.includes("lắp đặt") ||
+    query.includes("giao")
+  ) {
     return "HeLiCorp giao hàng nhanh toàn quốc. Khách hàng tại Hà Nội và TP.HCM sẽ được hỗ trợ giao và lắp đặt miễn phí tại nhà trong vòng 2 giờ.";
   }
 
@@ -38,10 +60,14 @@ function getFallbackReply(userMessage: string): string {
 
 export async function POST(request: Request) {
   try {
-    const { message } = await request.json();
+    const body = (await request.json()) as Record<string, unknown>;
+    const message = body["message"];
 
     if (!message || typeof message !== "string") {
-      return NextResponse.json({ error: "Tin nhắn không hợp lệ" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Tin nhắn không hợp lệ" },
+        { status: 400 },
+      );
     }
 
     const apiKey = process.env["GEMINI_API_KEY"];
@@ -58,34 +84,55 @@ export async function POST(request: Request) {
               {
                 parts: [
                   {
-                    text: `${DEFAULT_PROMPT}\n\nCâu hỏi của khách hàng: ${message}`
-                  }
-                ]
-              }
-            ]
-          })
+                    text: `${DEFAULT_PROMPT}\n\nCâu hỏi của khách hàng: ${message}`,
+                  },
+                ],
+              },
+            ],
+          }),
         });
 
         if (response.ok) {
-          const resData = await response.json();
+          const resData = (await response.json()) as {
+            candidates?: {
+              content?: {
+                parts?: {
+                  text?: string;
+                }[];
+              };
+            }[];
+          };
           const botReply = resData.candidates?.[0]?.content?.parts?.[0]?.text;
           if (botReply) {
             console.log("[HeLiBot Chat API]: Gemini responded successfully.");
-            return NextResponse.json({ reply: botReply.trim(), source: "gemini" });
+            return NextResponse.json({
+              reply: botReply.trim(),
+              source: "gemini",
+            });
           }
         }
-        console.warn("[HeLiBot Chat API]: Gemini API returned error, falling back to local rules.");
+        console.warn(
+          "[HeLiBot Chat API]: Gemini API returned error, falling back to local rules.",
+        );
       } catch (err) {
-        console.error("[HeLiBot Chat API]: Gemini connection failed, falling back.", err);
+        console.error(
+          "[HeLiBot Chat API]: Gemini connection failed, falling back.",
+          err,
+        );
       }
     }
 
     // Fallback to local rule-based response
-    console.log("[HeLiBot Chat API]: Using server-side local rule-based response.");
+    console.log(
+      "[HeLiBot Chat API]: Using server-side local rule-based response.",
+    );
     const fallbackReply = getFallbackReply(message);
     return NextResponse.json({ reply: fallbackReply, source: "fallback" });
   } catch (error) {
     console.error("[HeLiBot Chat API] handler error:", error);
-    return NextResponse.json({ error: "Lỗi hệ thống chatbot" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Lỗi hệ thống chatbot" },
+      { status: 500 },
+    );
   }
 }
