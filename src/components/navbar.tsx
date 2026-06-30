@@ -236,49 +236,41 @@ export function Navbar() {
             </Popover>
 
             {/* Theme Toggle Button */}
-            <div className="flex items-center gap-1 rounded-full border border-slate-200/60 bg-slate-100/80 p-0.5 transition-colors dark:border-slate-800/80 dark:bg-slate-950/80">
-              <button
-                aria-label="Giao diện sáng"
-                onClick={() => setTheme("light")}
-                className={`flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 active:translate-y-px active:scale-[0.98] sm:px-3 ${
-                  (!mounted ? false : !isDark)
-                    ? "border border-slate-200/50 bg-white text-slate-900 shadow-sm"
-                    : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
-                }`}
-              >
+            {/* Theme Toggle Button (Single Toggle) */}
+            <button
+              aria-label="Đổi giao diện"
+              onClick={() => setTheme(isDark ? "light" : "dark")}
+              className="relative flex h-8.5 w-8.5 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-white text-slate-600 transition-all hover:bg-slate-50 hover:text-slate-800 dark:border-slate-800/80 dark:bg-slate-900/50 dark:text-zinc-400 dark:hover:bg-slate-950 dark:hover:text-white"
+            >
+              {mounted && isDark ? (
+                // Sun Icon (when in dark mode, toggle to light)
                 <svg
-                  className="h-3.5 w-3.5"
+                  className="h-4.5 w-4.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <circle cx="12" cy="12" r="4" />
                   <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
                 </svg>
-                <span className="hidden sm:inline">Sáng</span>
-              </button>
-              <button
-                aria-label="Giao diện tối"
-                onClick={() => setTheme("dark")}
-                className={`flex cursor-pointer items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold transition-all duration-200 active:translate-y-px active:scale-[0.98] sm:px-3 ${
-                  (!mounted ? true : isDark)
-                    ? "bg-lime-400 text-black shadow-[0_2px_8px_rgba(163,230,53,0.2)]"
-                    : "text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200"
-                }`}
-              >
+              ) : (
+                // Moon Icon (when in light mode, toggle to dark)
                 <svg
-                  className="h-3.5 w-3.5"
+                  className="h-4.5 w-4.5"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
                   <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
                 </svg>
-                <span className="hidden sm:inline">Tối</span>
-              </button>
-            </div>
+              )}
+            </button>
 
             {/* CTA Button */}
             <button
