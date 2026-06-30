@@ -3,8 +3,6 @@
 import { toast } from "sonner";
 
 export function ToastCommitmentCard() {
-
-
   return (
     <div
       onClick={() =>
@@ -12,19 +10,21 @@ export function ToastCommitmentCard() {
           "Toast minh hoạ hoạt động! Hệ thống thông báo thời gian thực.",
         )
       }
-      className="group flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 bg-white shadow-sm hover:shadow-md dark:border-slate-800 dark:bg-[#131B2E]/40 p-4 transition-all hover:border-lime-400/40"
+      className="group bg-black/5 dark:bg-white/5 ring-1 ring-black/5 dark:ring-white/10 p-1.5 rounded-2xl cursor-pointer select-none transition-all duration-200 active:scale-[0.98]"
     >
-      <div>
-        <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
-          Theo dõi hành vi
-        </span>
-        <span className="block text-sm font-bold text-slate-900 transition-colors group-hover:text-lime-400 sm:text-base dark:text-white">
-          Toast minh hoạ
+      <div className="flex items-center justify-between rounded-[calc(1rem-0.375rem)] bg-white dark:bg-[#131B2E]/60 p-4 border border-slate-200/50 dark:border-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] transition-all group-hover:border-lime-400/40 dark:group-hover:border-lime-400/40 group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.8),0_4px_12px_rgba(163,230,53,0.05)] dark:group-hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_4px_12px_rgba(163,230,53,0.05)]">
+        <div>
+          <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+            Theo dõi hành vi
+          </span>
+          <span className="block text-sm font-bold text-slate-900 transition-colors group-hover:text-lime-400 sm:text-base dark:text-white">
+            Toast minh hoạ
+          </span>
+        </div>
+        <span className="rounded border border-lime-400/20 bg-lime-400/10 px-2 py-1 text-xs text-lime-400 transition-all duration-200 group-hover:bg-lime-400 group-hover:text-black">
+          Bấm Test
         </span>
       </div>
-      <span className="rounded border border-lime-400/20 bg-lime-400/10 px-2 py-1 text-xs text-lime-400 transition-all group-hover:scale-105">
-        Bấm Test
-      </span>
     </div>
   );
 }

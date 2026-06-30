@@ -9,78 +9,78 @@ export function SpecsSection() {
         <span className="mb-3 block text-xs font-bold tracking-widest text-lime-400 uppercase">
           THÔNG SỐ KỸ THUẬT CHI TIẾT
         </span>
-        <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
-          Thông số
+        <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white text-balance">
+          Thông số kỹ thuật
         </h2>
-        <p className="text-base leading-relaxed text-slate-600 sm:text-lg dark:text-zinc-400">
+        <p className="text-base leading-relaxed sm:leading-loose text-slate-600 sm:text-lg dark:text-zinc-400/90">
           Khối thông số của Pura Max được sắp xếp theo phong cách showroom trực
           quan: gọn gàng, bố cục mạch lạc giúp bạn nhanh chóng quét thông tin và
           ra quyết định chính xác nhất.
         </p>
       </div>
 
-      {/* 4 Details Cards (Stretched full width: 1 col on mobile, 2 cols on tablet, 4 cols on desktop) */}
-      <div className="grid w-full grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-4">
-        {/* Card 1: Kích thước máy */}
-        <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] dark:border-slate-800 dark:bg-[#131B2E]/30">
+      {/* 4 Bento Details Cards (Interlocking Asymmetric Grid on Desktop) */}
+      <div className="grid w-full grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-12">
+        {/* Card 1: Kích thước máy (7 cols) */}
+        <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-7 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
               Kích thước máy
             </span>
-            <span className="mb-2 block text-xl font-extrabold text-lime-400 sm:text-2xl">
+            <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
               620 × 538 × 552 mm
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-zinc-400">
+          <p className="text-xs leading-relaxed sm:leading-loose text-slate-600 sm:text-sm dark:text-zinc-400">
             Tỷ lệ thân máy gọn gàng lý tưởng cho chung cư và căn hộ nhỏ, nhưng
             vẫn tối ưu hóa không gian bên trong để mèo lớn xoay trở thoải mái.
           </p>
         </div>
 
-        {/* Card 2: Dung tích trong */}
-        <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] dark:border-slate-800 dark:bg-[#131B2E]/30">
+        {/* Card 2: Dung tích trong (5 cols) */}
+        <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-5 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
               DUNG TÍCH LỒNG & KHAY RÁC
             </span>
-            <span className="mb-2 block text-xl font-extrabold text-lime-400 sm:text-2xl">
+            <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
               76 L / 7 L
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-zinc-400">
+          <p className="text-xs leading-relaxed sm:leading-loose text-slate-600 sm:text-sm dark:text-zinc-400">
             Khoang xoay siêu rộng rãi 76L giúp mèo béo xoay đầu dễ dàng, kết hợp
             khay chứa rác 7L kín mùi đáp ứng nhu cầu dọn dẹp lên tới 15 ngày cho
             1 chú mèo.
           </p>
         </div>
 
-        {/* Card 3: Loại cát phù hợp */}
-        <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] dark:border-slate-800 dark:bg-[#131B2E]/30">
+        {/* Card 3: Loại cát phù hợp (5 cols) */}
+        <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-5 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
               Loại cát phù hợp
             </span>
-            <span className="mb-2 block text-xl font-extrabold text-lime-400 sm:text-2xl">
+            <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
               Khoáng · hỗn hợp
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-zinc-400">
+          <p className="text-xs leading-relaxed sm:leading-loose text-slate-600 sm:text-sm dark:text-zinc-400">
             Hoạt động hiệu quả với cát đất sét, cát đậu nành hạt nhuyễn dạng vón
             mịn, cát hỗn hợp đất sét - gỗ mà không kẹt lồng lọc.
           </p>
         </div>
 
-        {/* Card 4: Kết nối */}
-        <div className="flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:scale-[1.02] dark:border-slate-800 dark:bg-[#131B2E]/30">
+        {/* Card 4: Kết nối (7 cols) */}
+        <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md hover:bg-white/90 lg:col-span-7 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20 dark:hover:bg-[#131B2E]/60">
           <div>
-            <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+            <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-500 uppercase dark:text-zinc-500">
               Kết nối
             </span>
-            <span className="mb-2 block text-xl font-extrabold text-lime-400 sm:text-2xl">
+            <span className="mb-3 block text-xl font-extrabold text-lime-400 sm:text-2xl transition-transform duration-300 group-hover:translate-x-1">
               Wi-Fi 2.4GHz
             </span>
           </div>
-          <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-zinc-400">
+          <p className="text-xs leading-relaxed sm:leading-loose text-slate-600 sm:text-sm dark:text-zinc-400">
             Đồng bộ nhanh chóng với app PETKIT trên điện thoại thông minh để xem
             báo cáo sức khỏe, lịch sử dọn vệ sinh và cảnh báo đầy rác.
           </p>

@@ -8,7 +8,7 @@ export function HeroSection() {
         {["PETKIT AI CARE", "7L THÙNG RÁC", "WI-FI 2.4GHZ"].map((tag) => (
           <span
             key={tag}
-            className="rounded-md border border-slate-200 bg-white px-3 py-1.5 text-[10px] font-bold tracking-widest text-lime-600 shadow-sm sm:text-xs dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-lime-400"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-lime-600 uppercase shadow-sm dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-lime-400"
           >
             {tag}
           </span>
@@ -16,7 +16,7 @@ export function HeroSection() {
       </div>
 
       {/* Heading */}
-      <h1 className="mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-[56px] dark:text-white">
+      <h1 className="mb-6 text-4xl leading-[1.08] font-extrabold tracking-tighter text-slate-900 sm:text-5xl lg:text-[56px] dark:text-white">
         Chăm mèo nhàn tênh <br className="hidden sm:inline" />
         <span className="text-lime-400 drop-shadow-[0_0_15px_rgba(163,230,53,0.15)]">
           thời đại công nghệ
@@ -31,42 +31,44 @@ export function HeroSection() {
       </p>
 
       {/* 3-Column Stats Card */}
-      <div className="mb-8 grid w-full grid-cols-3 gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-md dark:border-slate-800 dark:bg-[#131B2E]/30">
-        {/* Stat 1 */}
-        <div className="flex flex-col border-r border-slate-200/60 pr-2 dark:border-slate-800/40">
-          <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-900 uppercase opacity-60 dark:text-white">
-            Chu trình sàng
-          </span>
-          <span className="mb-1 text-lg font-extrabold text-lime-400 sm:text-2xl">
-            180°
-          </span>
-          <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-900 opacity-70 dark:text-white">
-            Lồng xoay mượt để gom chất thải và giữ cát sạch lâu hơn.
-          </span>
-        </div>
-        {/* Stat 2 */}
-        <div className="flex flex-col border-r border-slate-200/60 px-2 dark:border-slate-800/40">
-          <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-900 uppercase opacity-60 dark:text-white">
-            Khử mùi
-          </span>
-          <span className="mb-1 text-lg font-extrabold text-lime-400 sm:text-2xl">
-            Smart Spray
-          </span>
-          <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-900 opacity-70 dark:text-white">
-            Xịt khử mùi sau mỗi chu kỳ, hạn chế mùi lan trong nhà.
-          </span>
-        </div>
-        {/* Stat 3 */}
-        <div className="flex flex-col pl-2">
-          <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-900 uppercase opacity-60 dark:text-white">
-            An toàn
-          </span>
-          <span className="mb-1 text-lg font-extrabold text-lime-400 sm:text-2xl">
-            xSecure
-          </span>
-          <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-900 opacity-70 dark:text-white">
-            Nhiệt, hồng ngoại, cân nặng và chống kẹp cùng canh chừng.
-          </span>
+      <div className="mb-8 w-full rounded-3xl bg-slate-100/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] ring-1 ring-slate-200/50 dark:bg-white/5 dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] dark:ring-white/10">
+        <div className="grid grid-cols-3 gap-4 rounded-[1.125rem] border border-slate-200/30 bg-white p-5 dark:border-slate-800/40 dark:bg-[#131B2E]/40">
+          {/* Stat 1 */}
+          <div className="flex flex-col border-r border-slate-200/60 pr-2 dark:border-slate-800/40">
+            <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
+              Chu trình sàng
+            </span>
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+              180°
+            </span>
+            <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">
+              Lồng xoay mượt để gom chất thải và giữ cát sạch lâu hơn.
+            </span>
+          </div>
+          {/* Stat 2 */}
+          <div className="flex flex-col border-r border-slate-200/60 px-2 dark:border-slate-800/40">
+            <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
+              Khử mùi
+            </span>
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+              Smart Spray
+            </span>
+            <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">
+              Xịt khử mùi sau mỗi chu kỳ, hạn chế mùi lan trong nhà.
+            </span>
+          </div>
+          {/* Stat 3 */}
+          <div className="flex flex-col pl-2">
+            <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
+              An toàn
+            </span>
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+              xSecure
+            </span>
+            <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">
+              Nhiệt, hồng ngoại, cân nặng và chống kẹp cùng canh chừng.
+            </span>
+          </div>
         </div>
       </div>
 

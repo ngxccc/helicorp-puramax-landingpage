@@ -65,7 +65,7 @@ export function ScrollytellingSection() {
             end: "bottom top",
             scrub: 1.5,
           },
-        }
+        },
       );
 
       // 2. Parallax BG 2 - Faster, counter-motion volumetric glow
@@ -81,40 +81,44 @@ export function ScrollytellingSection() {
             end: "bottom top",
             scrub: 0.8,
           },
-        }
+        },
       );
 
-      // 3. Counter-Parallax Left Column (Text Container)
-      gsap.fromTo(
-        ".parallax-text-container",
-        { y: -20 },
-        {
-          y: 20,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
+      // 3. Desktop-only Counter-Parallax
+      const mm = gsap.matchMedia();
+      mm.add("(min-width: 1024px)", () => {
+        // Counter-Parallax Left Column (Text Container)
+        gsap.fromTo(
+          ".parallax-text-container",
+          { y: -20 },
+          {
+            y: 20,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
           },
-        }
-      );
+        );
 
-      // 4. Counter-Parallax Right Column (Media Container)
-      gsap.fromTo(
-        ".parallax-media-container",
-        { y: 30 },
-        {
-          y: -30,
-          ease: "none",
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top bottom",
-            end: "bottom top",
-            scrub: 1,
+        // Counter-Parallax Right Column (Media Container)
+        gsap.fromTo(
+          ".parallax-media-container",
+          { y: 30 },
+          {
+            y: -30,
+            ease: "none",
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 1,
+            },
           },
-        }
-      );
+        );
+      });
     },
     { scope: containerRef },
   );
@@ -123,12 +127,12 @@ export function ScrollytellingSection() {
     <div
       ref={containerRef}
       id="scrollytelling"
-      className="relative h-[560vh] w-full border-t border-slate-200 bg-white transition-colors duration-300 dark:border-slate-800/40 dark:bg-[#0A0D14]"
+      className="dark:bg-background relative h-[560vh] w-full border-t border-slate-200 bg-white transition-colors duration-300 dark:border-slate-800/40"
     >
       {/* Background Parallax Ambient Glow Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="parallax-bg-1 absolute top-[10%] left-[5%] w-[350px] h-[350px] rounded-full bg-lime-500/10 blur-3xl" />
-        <div className="parallax-bg-2 absolute bottom-[15%] right-[5%] w-[400px] h-[400px] rounded-full bg-lime-400/10 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="parallax-bg-1 absolute top-[10%] left-[5%] h-87.5 w-87.5 rounded-full bg-lime-500/10 blur-3xl" />
+        <div className="parallax-bg-2 absolute right-[5%] bottom-[15%] h-100 w-100 rounded-full bg-lime-400/10 blur-3xl" />
       </div>
 
       {/* 7 Invisible Tracker Zones in the scroll container */}
@@ -161,13 +165,13 @@ export function ScrollytellingSection() {
           </div>
 
           {/* Dual Sticky Content Layout */}
-          <div className="grid w-full grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-8">
+          <div className="grid w-full grid-cols-1 items-center gap-4 lg:grid-cols-12 lg:gap-8">
             {/* Left Column: Descriptive Panels (5 cols) - In-place Cross-fading Stack */}
             {/* Left Column: Descriptive Panels (5 cols) - In-place Cross-fading Stack */}
-            <div className="parallax-text-container relative order-last flex h-130 w-full flex-col justify-center sm:h-120 lg:order-first lg:col-span-5 lg:h-137.5">
+            <div className="parallax-text-container relative order-last flex h-96 w-full flex-col justify-start pt-2 sm:h-110 lg:order-first lg:col-span-5 lg:h-137.5 lg:justify-center lg:pt-0">
               {/* Panel 1: Những điểm cải tiến */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 0
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 0
@@ -239,7 +243,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 2: Phiên bản cải tiến */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 1
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 1
@@ -276,7 +280,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 3: Cabin & Waste Bin Capacity */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 2
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 2
@@ -326,7 +330,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 4: Litter Compatibility */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 3
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 3
@@ -373,7 +377,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 5: App Control & Noise Level */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 4
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 4
@@ -408,7 +412,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 6: Deodorizer & Sterilization */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 5
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 5
@@ -441,7 +445,7 @@ export function ScrollytellingSection() {
 
               {/* Panel 7: 12 Safety Sensors */}
               <div
-                className={`absolute inset-0 flex flex-col justify-center transition-all duration-500 ease-in-out ${
+                className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
                   activeStep === 6
                     ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
                     : activeStep < 6
@@ -506,10 +510,9 @@ export function ScrollytellingSection() {
             </div>
 
             {/* Right Column: Sticky Media Column (7 cols) - In-place Cross-fading Stack */}
-            {/* Right Column: Sticky Media Column (7 cols) - In-place Cross-fading Stack */}
-            <div className="parallax-media-container relative flex h-80 w-full items-center justify-center sm:h-95 lg:col-span-7 lg:h-137.5">
+            <div className="parallax-media-container relative flex h-44 w-full items-center justify-center sm:h-72 lg:col-span-7 lg:h-137.5">
               {/* 1. Real Product Image Overlay (Fades in based on activeStep) */}
-              <div className="pointer-events-none absolute inset-0 z-10 mx-auto max-w-[320px] overflow-hidden rounded-2xl sm:max-w-112.5 lg:max-w-137.5">
+              <div className="pointer-events-none absolute inset-0 z-10 mx-auto max-w-60 overflow-hidden rounded-2xl sm:max-w-112.5 lg:max-w-137.5">
                 <Image
                   src="/nhungdiemcaitien.webp"
                   alt="PETKIT Pura Max 2 Những Điểm Cải Tiến"
