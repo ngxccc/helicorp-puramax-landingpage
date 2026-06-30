@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 
 const HeLiBot = dynamic(
@@ -17,6 +18,24 @@ const ActivityTracker = dynamic(
 );
 
 export function ClientSideComponents() {
+  const [shouldRender, setShouldRender] = useState(false);
+
+  useEffect(() => {
+    const handle = window.requestIdleCallback
+      ? window.requestIdleCallback(() => setShouldRender(true))
+      : window.setTimeout(() => setShouldRender(true), 300);
+
+    return () => {
+      if (window.cancelIdleCallback && typeof handle === "number") {
+        window.cancelIdleCallback(handle);
+      } else {
+        window.clearTimeout(handle as number);
+      }
+    };
+  }, []);
+
+  if (!shouldRender) return null;
+
   return (
     <>
       <HeLiBot />
