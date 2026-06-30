@@ -9,6 +9,7 @@ import { ChatProvider } from "@/components/chat-context";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollytellingWrapper } from "@/features/scrollytelling/components/scrollytelling-wrapper";
 import { ClientSideComponents } from "@/components/client-side-components";
+import { RecentlyViewed } from "@/components/recently-viewed";
 
 export default function Home() {
   return (
@@ -82,6 +83,9 @@ export default function Home() {
 
         {/* Register Trial Section */}
           <TrialSection />
+          
+          {/* Recently Viewed & Recommended Products Section */}
+          <RecentlyViewed />
         </main>
         {/* Footer Section */}
         <Footer />
