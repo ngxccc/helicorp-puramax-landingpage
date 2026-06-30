@@ -52,7 +52,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className="flex min-h-full flex-col bg-white text-slate-900 transition-colors duration-300 selection:bg-lime-400 selection:text-black dark:bg-[#0A0D14] dark:text-white">
+      <body className="dark:bg-background flex min-h-full flex-col bg-white text-slate-900 transition-colors duration-300 selection:bg-lime-400 selection:text-black dark:text-white">
         <ThemeProvider>{children}</ThemeProvider>
         <UserTracker />
       </body>

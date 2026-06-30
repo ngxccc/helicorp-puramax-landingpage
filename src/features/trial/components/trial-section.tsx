@@ -5,7 +5,7 @@ export function TrialSection() {
   return (
     <section
       id="dung-thu"
-      className="border-t border-slate-200 bg-slate-50 py-24 transition-colors duration-300 dark:border-slate-800/40 dark:bg-[#0E1322]"
+      className="dark:bg-background border-t border-slate-200 bg-slate-50 py-24 transition-colors duration-300 dark:border-slate-800/40"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-8">
@@ -27,31 +27,34 @@ export function TrialSection() {
             {/* 3 Commitments Vertical List */}
             <div className="flex flex-col gap-4">
               {/* Commitment 1 */}
-              <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-[#131B2E]/40">
-                <div>
-                  <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
-                    Cam kết
-                  </span>
-                  <span className="block text-sm font-bold text-slate-900 sm:text-base dark:text-white">
-                    Tư vấn trong ngày
-                  </span>
+              <div className="rounded-2xl bg-black/5 p-1.5 ring-1 ring-black/5 dark:bg-white/5 dark:ring-white/10">
+                <div className="flex items-center justify-between rounded-[0.625rem] border border-slate-200/50 bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:border-white/10 dark:bg-[#131B2E]/60 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                  <div>
+                    <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+                      Cam kết
+                    </span>
+                    <span className="block text-sm font-bold text-slate-900 sm:text-base dark:text-white">
+                      Tư vấn trong ngày
+                    </span>
+                  </div>
+                  <span className="text-lg font-bold text-lime-400">✓</span>
                 </div>
-                <span className="text-lg font-bold text-lime-400">✓</span>
               </div>
 
               {/* Commitment 2 */}
-              <div className="flex items-center justify-between rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-[#131B2E]/40">
-                <div>
-                  <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
-                    Kèm phụ kiện
-                  </span>
-                  <span className="block text-sm font-bold text-slate-900 sm:text-base dark:text-white">
-                    Túi rác và refill
-                  </span>
+              <div className="rounded-2xl bg-black/5 p-1.5 ring-1 ring-black/5 dark:bg-white/5 dark:ring-white/10">
+                <div className="flex items-center justify-between rounded-[0.625rem] border border-slate-200/50 bg-white p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.8)] dark:border-white/10 dark:bg-[#131B2E]/60 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                  <div>
+                    <span className="mb-1 block text-[10px] font-bold text-slate-900 uppercase opacity-60 dark:text-white">
+                      Kèm phụ kiện
+                    </span>
+                    <span className="block text-sm font-bold text-slate-900 sm:text-base dark:text-white">
+                      Túi rác và refill
+                    </span>
+                  </div>
+                  <span className="text-lg font-bold text-lime-400">✓</span>
                 </div>
-                <span className="text-lg font-bold text-lime-400">✓</span>
               </div>
-
               {/* Commitment 3: Interactive Toast Trigger (Client Component) */}
               <ToastCommitmentCard />
             </div>

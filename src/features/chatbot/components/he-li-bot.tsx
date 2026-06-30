@@ -11,7 +11,6 @@ interface Message {
 export function HeLiBot() {
   const { chatOpen, setChatOpen } = useChat();
 
-
   const [chatInput, setChatInput] = useState("");
   const [chatMessages, setChatMessages] = useState<Message[]>([
     {
@@ -75,9 +74,7 @@ export function HeLiBot() {
     <div className="fixed right-6 bottom-6 z-40 flex flex-col items-end gap-3">
       {/* Chat window panel */}
       {chatOpen && (
-        <div
-          className="animate-slide-up flex h-112.5 w-80 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800 dark:border-slate-800 dark:bg-[#0E1322] dark:text-white shadow-2xl transition-all duration-300 sm:w-96"
-        >
+        <div className="animate-slide-up dark:bg-background flex h-112.5 w-80 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-800 shadow-2xl transition-all duration-300 sm:w-96 dark:border-slate-800 dark:text-white">
           {/* Header */}
           <div className="flex items-center justify-between bg-lime-400 px-4 py-3 font-bold text-black">
             <div className="flex items-center gap-2 text-sm">
@@ -100,9 +97,7 @@ export function HeLiBot() {
           </div>
 
           {/* Messages box */}
-          <div
-            className="flex flex-1 flex-col gap-3 overflow-y-auto p-4 text-xs leading-normal bg-slate-50 dark:bg-[#0A0D14]"
-          >
+          <div className="dark:bg-background flex flex-1 flex-col gap-3 overflow-y-auto bg-slate-50 p-4 text-xs leading-normal">
             {chatMessages.map((msg, i) => (
               <div
                 key={i}
@@ -137,7 +132,7 @@ export function HeLiBot() {
                 onClick={() => {
                   setChatInput(suggestion);
                 }}
-                className="cursor-pointer rounded-full border border-slate-200 bg-white text-slate-600 hover:bg-slate-100 hover:text-black dark:border-slate-800 dark:bg-slate-950/40 dark:text-zinc-400 dark:hover:text-white px-2.5 py-1 text-[10px] font-semibold transition-all"
+                className="cursor-pointer rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[10px] font-semibold text-slate-600 transition-all hover:bg-slate-100 hover:text-black dark:border-slate-800 dark:bg-slate-950/40 dark:text-zinc-400 dark:hover:text-white"
               >
                 {suggestion}
               </button>
@@ -147,14 +142,14 @@ export function HeLiBot() {
           {/* Input form */}
           <form
             onSubmit={handleSendMessage}
-            className="flex gap-2 border-t border-slate-200 bg-white dark:border-slate-800/80 dark:bg-[#0E1322] p-3"
+            className="dark:bg-background flex gap-2 border-t border-slate-200 bg-white p-3 dark:border-slate-800/80"
           >
             <input
               type="text"
               placeholder="Nhập tin nhắn..."
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
-              className="flex-1 rounded-lg border border-slate-200 bg-slate-50 text-slate-900 focus:border-lime-500 dark:border-slate-800 dark:bg-[#0A0D14] dark:text-white dark:focus:border-lime-400 px-3 py-2 text-xs transition-all outline-none"
+              className="dark:bg-background flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 transition-all outline-none focus:border-lime-500 dark:border-slate-800 dark:text-white dark:focus:border-lime-400"
             />
             <button
               type="submit"
@@ -169,7 +164,7 @@ export function HeLiBot() {
       {/* Floating Toggle Button */}
       <button
         onClick={() => setChatOpen(!chatOpen)}
-        className="group flex cursor-pointer items-center gap-2 rounded-full bg-lime-400 px-5 py-3 text-sm font-bold text-black shadow-[0_4px_25px_rgba(163,230,53,0.35)] transition-all hover:scale-105 active:scale-95"
+        className="group flex cursor-pointer items-center gap-2 rounded-full bg-lime-400 px-5 py-3 text-sm font-bold text-black shadow-[0_4px_25px_rgba(163,230,53,0.35)] transition-all hover:-translate-y-0.5 active:scale-95"
       >
         {/* Bot Indicator Pulse */}
         <span className="relative flex h-2.5 w-2.5">

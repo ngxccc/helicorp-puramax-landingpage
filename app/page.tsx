@@ -14,7 +14,7 @@ import { ActivityTracker } from "@/components/activity-tracker";
 export default function Home() {
   return (
     <ChatProvider>
-      <div className="relative min-h-screen overflow-x-clip bg-[#F8FAFC] font-sans text-slate-900 transition-colors duration-300 dark:bg-[#0A0D14] dark:text-white">
+      <div className="bg-background relative min-h-screen overflow-x-clip font-sans text-slate-900 transition-colors duration-300 dark:text-white">
         {/* Toaster */}
         <Toaster position="top-right" />
         {/* Navigation Bar */}
@@ -36,29 +36,37 @@ export default function Home() {
           {/* Hero Bottom Horizontal Cards (2 Cards side by side) */}
           <div className="relative z-10 mt-10 grid grid-cols-1 gap-6 text-left md:grid-cols-2">
             {/* Card 1: Cuộn kể chuyện */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-slate-800 shadow-sm transition-all hover:scale-[1.01] dark:border-slate-800/80 dark:bg-[#131B2E]/40 dark:text-white">
-              <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-400 uppercase">
-                Cuộn kể chuyện
-              </span>
-              <h3 className="mb-2 text-xl font-bold">Mở lớp máy</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-                Khi cuộn trang, lớp vỏ tách ra để lộ lồng xoay, lưới mềm, bình
-                xịt và thùng chứa, mô phỏng sinh động từng chi tiết thiết kế bên
-                trong thiết bị.
-              </p>
+            <div className="group rounded-3xl bg-slate-100/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] ring-1 ring-slate-200/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] dark:bg-white/5 dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] dark:ring-white/10 dark:hover:shadow-[0_12px_40px_rgb(0,0,0,0.3)]">
+              <div className="h-full rounded-[1.125rem] border border-slate-200/30 bg-white p-6 dark:border-slate-800/40 dark:bg-[#131B2E]/40">
+                <span className="mb-2.5 inline-flex rounded-full bg-lime-400/10 px-3 py-1 text-[10px] font-bold tracking-widest text-lime-600 uppercase dark:text-lime-400">
+                  Cuộn kể chuyện
+                </span>
+                <h3 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  Mở lớp máy
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  Khi cuộn trang, lớp vỏ tách ra để lộ lồng xoay, lưới mềm, bình
+                  xịt và thùng chứa, mô phỏng sinh động từng chi tiết thiết kế
+                  bên trong thiết bị.
+                </p>
+              </div>
             </div>
 
             {/* Card 2: Tương tác */}
-            <div className="rounded-2xl border border-slate-200 bg-white p-6 text-slate-800 shadow-sm transition-all hover:scale-[1.01] dark:border-slate-800/80 dark:bg-[#131B2E]/40 dark:text-white">
-              <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-400 uppercase">
-                Tương tác
-              </span>
-              <h3 className="mb-2 text-xl font-bold">Radar cảm biến</h3>
-              <p className="text-sm leading-relaxed text-slate-600 dark:text-zinc-400">
-                Hotspot phát sáng mô phỏng vùng quét cảm biến, kiểm tra trọng
-                lượng thông minh và logic chống kẹp độc quyền hoạt động theo
-                thời gian thực.
-              </p>
+            <div className="group rounded-3xl bg-slate-100/80 p-1.5 shadow-[0_8px_30px_rgb(0,0,0,0.02)] ring-1 ring-slate-200/50 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_40px_rgb(0,0,0,0.04)] dark:bg-white/5 dark:shadow-[0_8px_30px_rgb(0,0,0,0.2)] dark:ring-white/10 dark:hover:shadow-[0_12px_40px_rgb(0,0,0,0.3)]">
+              <div className="h-full rounded-[1.125rem] border border-slate-200/30 bg-white p-6 dark:border-slate-800/40 dark:bg-[#131B2E]/40">
+                <span className="mb-2.5 inline-flex rounded-full bg-lime-400/10 px-3 py-1 text-[10px] font-bold tracking-widest text-lime-600 uppercase dark:text-lime-400">
+                  Tương tác
+                </span>
+                <h3 className="mb-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                  Radar cảm biến
+                </h3>
+                <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                  Hotspot phát sáng mô phỏng vùng quét cảm biến, kiểm tra trọng
+                  lượng thông minh và logic chống kẹp độc quyền hoạt động theo
+                  thời gian thực.
+                </p>
+              </div>
             </div>
           </div>
         </section>

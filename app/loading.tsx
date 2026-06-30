@@ -2,9 +2,9 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
   return (
-    <div className="relative min-h-screen overflow-x-clip bg-[#F8FAFC] dark:bg-[#0A0D14] transition-colors duration-300">
+    <div className="bg-background relative min-h-screen overflow-x-clip transition-colors duration-300">
       {/* Navbar Skeleton */}
-      <header className="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 dark:border-slate-800/80 dark:bg-[#0A0D14]/80 backdrop-blur-md">
+      <header className="dark:bg-background/80 sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/80 backdrop-blur-md dark:border-slate-800/80">
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3">
             <Skeleton className="h-10 w-10 rounded-xl" />
@@ -19,8 +19,8 @@ export default function Loading() {
             <Skeleton className="h-4 w-16" />
           </div>
           <div className="flex items-center gap-4">
-            <Skeleton className="h-8 w-16 sm:w-24 rounded-full" />
-            <Skeleton className="h-10 w-20 sm:w-28 rounded-full" />
+            <Skeleton className="h-8 w-16 rounded-full sm:w-24" />
+            <Skeleton className="h-10 w-20 rounded-full sm:w-28" />
           </div>
         </div>
       </header>
@@ -34,31 +34,31 @@ export default function Loading() {
             <Skeleton className="mb-6 h-12 w-full max-w-md rounded-lg" />
             <Skeleton className="mb-6 h-6 w-full max-w-lg rounded" />
             <Skeleton className="mb-8 h-6 w-4/5 rounded" />
-            <div className="grid grid-cols-3 gap-2 w-full sm:flex sm:w-auto sm:gap-4">
-              <Skeleton className="h-12 w-full sm:w-28 rounded-2xl sm:rounded-full" />
-              <Skeleton className="h-12 w-full sm:w-32 rounded-2xl sm:rounded-full" />
-              <Skeleton className="h-12 w-full sm:w-28 rounded-2xl sm:rounded-full" />
+            <div className="grid w-full grid-cols-3 gap-2 sm:flex sm:w-auto sm:gap-4">
+              <Skeleton className="h-12 w-full rounded-2xl sm:w-28 sm:rounded-full" />
+              <Skeleton className="h-12 w-full rounded-2xl sm:w-32 sm:rounded-full" />
+              <Skeleton className="h-12 w-full rounded-2xl sm:w-28 sm:rounded-full" />
             </div>
           </div>
 
           {/* Hero Right Column (DeviceMockup) Skeleton */}
           <div className="relative flex min-h-125 w-full flex-col items-center justify-center lg:col-span-6">
             <div className="relative flex aspect-square w-full max-w-105 items-center justify-center">
-              <Skeleton className="h-[320px] w-[320px] sm:h-[380px] sm:w-[380px] lg:h-[420px] lg:w-[420px] rounded-3xl" />
+              <Skeleton className="h-80 w-[320px] rounded-3xl sm:h-95 sm:w-95 lg:h-105 lg:w-105" />
             </div>
             {/* Side Card 1 Skeleton */}
-            <div className="absolute top-[8%] left-[-4%] z-30 flex w-[210px] items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2.5 dark:border-slate-800 dark:bg-[#131B2E]/95 shadow-xl">
+            <div className="absolute top-[8%] left-[-4%] z-30 flex w-52.5 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl dark:border-slate-800 dark:bg-[#131B2E]/95">
               <Skeleton className="h-10 w-10 rounded-xl" />
-              <div className="flex flex-col gap-1.5 flex-1">
+              <div className="flex flex-1 flex-col gap-1.5">
                 <Skeleton className="h-3 w-12" />
                 <Skeleton className="h-2 w-full" />
                 <Skeleton className="h-2 w-4/5" />
               </div>
             </div>
             {/* Side Card 2 Skeleton */}
-            <div className="absolute top-[18%] right-[-4%] z-30 flex w-[210px] items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2.5 dark:border-slate-800 dark:bg-[#131B2E]/95 shadow-xl">
+            <div className="absolute top-[18%] right-[-4%] z-30 flex w-52.5 items-center gap-3 rounded-2xl border border-slate-200 bg-white p-2.5 shadow-xl dark:border-slate-800 dark:bg-[#131B2E]/95">
               <Skeleton className="h-10 w-10 rounded-xl" />
-              <div className="flex flex-col gap-1.5 flex-1">
+              <div className="flex flex-1 flex-col gap-1.5">
                 <Skeleton className="h-3 w-16" />
                 <Skeleton className="h-2 w-full" />
                 <Skeleton className="h-2 w-3/4" />
@@ -88,15 +88,15 @@ export default function Loading() {
       <section className="relative bg-slate-100 py-24 dark:bg-slate-900/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
-            <div className="lg:col-span-5 text-left">
+            <div className="text-left lg:col-span-5">
               <Skeleton className="mb-3 h-3 w-24" />
               <Skeleton className="mb-4 h-8 w-48" />
               <Skeleton className="mb-6 h-4 w-full" />
               <Skeleton className="mb-6 h-4 w-4/5" />
               <Skeleton className="h-10 w-36 rounded-lg" />
             </div>
-            <div className="lg:col-span-7 flex justify-center">
-              <Skeleton className="h-[300px] w-full max-w-[500px] rounded-2xl" />
+            <div className="flex justify-center lg:col-span-7">
+              <Skeleton className="h-75 w-full max-w-125 rounded-2xl" />
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@ export default function Loading() {
           <Skeleton className="mb-4 h-10 w-40" />
           <Skeleton className="h-4 w-full" />
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 w-full">
+        <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
             <div
               key={i}
