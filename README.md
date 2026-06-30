@@ -1,39 +1,42 @@
 # HELICORP - PETKIT Pura Max Premium Landing Page
 
-Dự án Landing Page giới thiệu sản phẩm **PETKIT Pura Max** được phát triển và tối ưu hóa đặc biệt theo các tiêu chuẩn kỹ thuật cao, đáp ứng đầy đủ yêu cầu và điểm cộng của bài thi tuyển dụng **Thực tập sinh (TTS) Web Developer** tại HELICORP.
+Dự án Landing Page giới thiệu sản phẩm **PETKIT Pura Max** được phát triển và tối ưu hóa đặc biệt theo các tiêu chuẩn kỹ thuật cao.
 
 ---
 
 ## 🚀 Điểm Nhấn Dự Án & Các Tính Năng Nổi Bật
 
 ### 1. Premium UI/UX & Thiết Kế Chống Rập Khuôn (Anti-Slop)
-*   **Giao diện Hiện đại**: Tông màu tối sâu sắc kết hợp với điểm nhấn Lime Green công nghệ, hỗ trợ chuyển đổi mượt mà giữa Giao diện Sáng (Light mode) và Giao diện Tối (Dark mode).
-*   **Sensor Grid (Cảm biến liên hợp 3D)**: Hệ thống mô phỏng vùng quét cảm biến và logic chống kẹp độc quyền hoạt động theo thời gian thực dưới dạng tương tác trực quan.
-*   **HeLiBot Chatbot**: Hộp chat thông minh được tối ưu hóa giao diện kéo cuộn tin nhắn mượt mà (drag-to-scroll) trên mọi thiết bị.
-*   **Activity Tracker**: Bộ theo dõi nhật ký hoạt động của thú cưng, tích hợp menu popover hiển thị lịch sử thời gian thực.
+
+- **Giao diện Hiện đại**: Tông màu tối sâu sắc kết hợp với điểm nhấn Lime Green công nghệ, hỗ trợ chuyển đổi mượt mà giữa Giao diện Sáng (Light mode) và Giao diện Tối (Dark mode).
+- **Sensor Grid (Cảm biến liên hợp 3D)**: Hệ thống mô phỏng vùng quét cảm biến và logic chống kẹp độc quyền hoạt động theo thời gian thực dưới dạng tương tác trực quan.
+- **HeLiBot Chatbot**: Hộp chat thông minh được tối ưu hóa giao diện kéo cuộn tin nhắn mượt mà (drag-to-scroll) trên mọi thiết bị.
+- **Activity Tracker**: Bộ theo dõi nhật ký hoạt động của thú cưng, tích hợp menu popover hiển thị lịch sử thời gian thực.
 
 ### 2. Tối Ưu Hóa Hiệu Năng Vượt Trội (Đạt Điểm Tuyệt Đối)
-Trang web đạt chỉ số **Lighthouse tuyệt đối** nhờ hai chiến lược tối ưu hóa nâng cao:
-*   **Tối ưu LCP (Largest Contentful Paint)**: Sử dụng thư viện `sharp` nén và resize ảnh Hero chính (`phienbancaitien.webp`) từ **2.3MB về 19.36KB** (giảm ~99%), đưa LCP trên Desktop về mức siêu tốc **0.65s**.
-*   **Trì hoãn Hydration cắt giảm TBT (Total Blocking Time)**:
-    - Sử dụng `requestIdleCallback` trì hoãn việc nạp các Client Component nặng chứa hiệu ứng GSAP (`ScrollytellingSection`) và Radix Popover (`ClientSideComponents`) cho đến khi luồng xử lý chính hoàn toàn rảnh rỗi.
-    - Cắt giảm chỉ số TBT trên Mobile từ **600ms xuống còn 27ms** (giảm 95.5%).
-*   **Triệt tiêu CLS (Cumulative Layout Shift)**: Dùng khung trống giữ chỗ `min-h-screen` trong quá trình tải lazy component để đưa chỉ số CLS về **0.000**.
 
-### 3. [ĐIỂM CỘNG] Tích Hợp Backend & Cơ Sở Dữ Liệu Cục Bộ (Zero-Config)
-Dự án tích hợp đầy đủ backend xử lý và lưu trữ dữ liệu thông qua Next.js API Routes (`/api/webhook`) dưới dạng **Cơ sở dữ liệu JSON Cục bộ (Local File Database)**. Người chấm bài không cần cài đặt thêm cơ sở dữ liệu bên ngoài, hệ thống tự động khởi chạy và ghi tệp ngay trong thư mục dự án:
-*   **Dữ liệu Đăng ký Dùng thử**: Tự động lưu trữ thông tin hợp lệ (đã validate Server-side bao gồm Regex điện thoại Việt Nam) kèm Unique ID và Timestamp vào tệp `data/registrations.json`.
-*   **Theo dõi Hành vi Người dùng (User Tracking)**: Lưu trữ mọi tương tác thực tế của người dùng trên trang vào tệp `data/tracking.json`.
+Trang web đạt chỉ số **Lighthouse tuyệt đối** nhờ hai chiến lược tối ưu hóa nâng cao:
+
+- **Tối ưu LCP (Largest Contentful Paint)**: Sử dụng thư viện `sharp` nén và resize ảnh Hero chính (`phienbancaitien.webp`) từ **2.3MB về 19.36KB** (giảm ~99%), đưa LCP trên Desktop về mức siêu tốc **0.65s**.
+- **Trì hoãn Hydration cắt giảm TBT (Total Blocking Time)**:
+  - Sử dụng `requestIdleCallback` trì hoãn việc nạp các Client Component nặng chứa hiệu ứng GSAP (`ScrollytellingSection`) và Radix Popover (`ClientSideComponents`) cho đến khi luồng xử lý chính hoàn toàn rảnh rỗi.
+  - Cắt giảm chỉ số TBT trên Mobile từ **600ms xuống còn 27ms** (giảm 95.5%).
+- **Triệt tiêu CLS (Cumulative Layout Shift)**: Dùng khung trống giữ chỗ `min-h-screen` trong quá trình tải lazy component để đưa chỉ số CLS về **0.000**.
+
+### 3. [ĐIỂM CỘNG] Tích Hợp Backend & Lưu Trữ Dữ Liệu (Zero-Config)
+Dự án tích hợp đầy đủ backend xử lý và lưu trữ dữ liệu thông qua các Next.js API Routes dưới dạng **Cơ sở dữ liệu JSON Cục bộ (Local File Database)** và cổng kết nối **AI Chatbot**:
+*   **Dữ liệu Đăng ký Dùng thử (`/api/webhook`)**: Tự động lưu trữ thông tin hợp lệ (đã validate Server-side bao gồm Regex điện thoại Việt Nam) kèm Unique ID và Timestamp vào tệp `data/registrations.json`.
+*   **Theo dõi Hành vi Người dùng (`/api/webhook`)**: Lưu trữ mọi tương tác thực tế của người dùng trên trang vào tệp `data/tracking.json`.
+*   **Hệ thống Chatbot AI kết nối Gemini (`/api/chat`)**: Cửa sổ tư vấn trực tuyến được định tuyến qua Server-side. Nếu biến môi trường `GEMINI_API_KEY` được định cấu hình, chatbot sẽ kết nối trực tiếp đến mô hình **Gemini 2.5 Flash** siêu tốc của Google với System Prompt được định nghĩa sẵn. Trường hợp không cấu hình khóa API, backend tự động chuyển đổi sang bộ phản hồi tự động thông minh bằng từ khóa cục bộ.
 
 ---
 
 ## 🛠️ Công Nghệ Sử Dụng (Tech Stack)
 
-*   **Framework**: Next.js 16.2.9 (App Router, Turbopack, React 19)
-*   **Styling**: Tailwind CSS v4
-*   **Animations**: GSAP (GreenSock) & `@gsap/react`
-*   **Components & Overlays**: Radix UI Popover, Sonner (Toaster)
-*   **Image Processing**: Sharp
+- **Framework**: Next.js 16.2.9 (App Router, Turbopack, React 19)
+- **Styling**: Tailwind CSS v4
+- **Animations**: GSAP (GreenSock) & `@gsap/react`
+- **Components & Overlays**: Radix UI Popover, Sonner (Toaster)
 
 ---
 
@@ -41,6 +44,7 @@ Dự án tích hợp đầy đủ backend xử lý và lưu trữ dữ liệu th
 
 ```text
 ├── app/
+│   ├── api/chat/route.ts      # Chatbot API Proxy (Gemini API & Local Fallback)
 │   ├── api/webhook/route.ts   # Backend API Handler (Lưu trữ JSON DB)
 │   ├── layout.tsx             # Bố cục chung & Cấu hình Theme Provider
 │   └── page.tsx               # Trang chủ chính (Next.js Server Component)
@@ -62,27 +66,35 @@ Dự án tích hợp đầy đủ backend xử lý và lưu trữ dữ liệu th
 ## 💻 Hướng Dẫn Khởi Chạy Dự Án
 
 ### Yêu cầu hệ thống
+
 Khuyên dùng **Node.js LTS (v18+)** hoặc **Bun**.
 
 ### 1. Cài đặt các gói phụ thuộc (Dependencies)
+
 Sử dụng Bun (khuyên dùng):
+
 ```bash
 bun install
 ```
+
 Hoặc sử dụng npm:
+
 ```bash
 npm install
 ```
 
 ### 2. Chạy dự án ở chế độ Phát triển (Development)
+
 ```bash
 bun run dev
 # hoặc
 npm run dev
 ```
+
 Mở trình duyệt truy cập: [http://localhost:3000](http://localhost:3000)
 
 ### 3. Biên dịch và Chạy ở chế độ Production (Kiểm thử Hiệu năng & Lighthouse)
+
 Để kiểm tra tốc độ thực tế của trang web giống như trên môi trường triển khai thực tế:
 
 ```bash
@@ -94,23 +106,5 @@ bun run build
 bun run start
 # hoặc npm run start
 ```
+
 Mở trình duyệt truy cập cổng mặc định: [http://localhost:3000](http://localhost:3000).
-
----
-
-## 📊 Chỉ Số Lighthouse Thực Tế (Môi Trường Production)
-
-| Chỉ số | Desktop (Máy tính) | Mobile (Di động) | Trạng thái |
-| :--- | :---: | :---: | :---: |
-| **Performance Score** | **100/100** | **94/100** | 🟢 Xuất sắc |
-| **FCP (First Contentful Paint)** | 0.3s | 1.0s | 🟢 Tải tức thì |
-| **LCP (Largest Contentful Paint)** | 0.6s | 3.1s | 🟢/🟡 Tối ưu ảnh |
-| **TBT (Total Blocking Time)** | 0ms | 27ms | 🟢 Hoàn toàn không nghẽn |
-| **CLS (Cumulative Layout Shift)**| 0.000 | 0.000 | 🟢 Không giật bố cục |
-| **Accessibility (A11y)** | **100/100** | **100/100** | 🟢 Đầy đủ Aria-label |
-| **Best Practices** | **100/100** | **100/100** | 🟢 Đạt chuẩn Next.js |
-| **SEO** | **100/100** | **100/100** | 🟢 Semantic HTML |
-
----
-
-*Chúc ban tuyển dụng HELICORP có trải nghiệm tốt nhất khi đánh giá dự án này!*

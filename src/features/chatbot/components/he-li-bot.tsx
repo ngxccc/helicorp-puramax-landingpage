@@ -35,51 +35,42 @@ export function HeLiBot() {
     },
   ]);
   // MessageScroller handles scroll behavior automatically
-  const sendMessage = (text: string) => {
+  const sendMessage = async (text: string) => {
     if (!text.trim()) return;
 
     const userText = text.trim();
     setChatMessages((prev) => [...prev, { sender: "user", text: userText }]);
     setChatInput("");
 
-    setTimeout(() => {
-      let botReply =
-        "Cảm ơn bạn đã quan tâm! Bạn có thể để lại thông tin ở phần Đăng ký dùng thử để nhận tư vấn trực tiếp từ HeLiCorp nhé.";
-      const query = userText.toLowerCase();
+    // Add a typing placeholder indicator
+    setChatMessages((prev) => [...prev, { sender: "bot", text: "..." }]);
 
-      if (query.includes("giá") || query.includes("bao nhiêu")) {
-        botReply =
-          "PETKIT Pura Max chính hãng đang có giá ưu đãi đặc biệt tại HeLiCorp. Nhập thông tin đăng ký bên dưới để nhận ngay báo giá kèm ưu đãi phụ kiện 500k!";
-      } else if (
-        query.includes("mèo") ||
-        query.includes("cân nặng") ||
-        query.includes("kg")
-      ) {
-        botReply =
-          "Pura Max thích hợp cho mèo từ 1.5kg đến 10kg với khoang chứa rộng 76L thoải mái xoay đầu và hệ cảm biến đo trọng lượng chính xác.";
-      } else if (query.includes("cát") || query.includes("loại cát")) {
-        botReply =
-          "Máy tương thích hoàn hảo với hầu hết các loại cát vón trên thị trường: cát đất sét (khoáng), cát đậu phụ dạng hạt mịn, và cát hỗn hợp.";
-      } else if (query.includes("khử mùi") || query.includes("hôi")) {
-        botReply =
-          "Pura Max tích hợp bộ xịt khử mùi Smart Spray tự động phun tinh dầu hương tự nhiên sau mỗi chu kỳ đi vệ sinh của mèo, loại bỏ mùi hôi tức thì.";
-      } else if (query.includes("bảo hành") || query.includes("chính hãng")) {
-        botReply =
-          "Sản phẩm phân phối chính hãng bởi HeLiCorp được bảo hành 12 tháng tại nhà, cam kết 1 đổi 1 trong 30 ngày đầu tiên nếu có lỗi kỹ thuật.";
-      } else if (
-        query.includes("ship") ||
-        query.includes("giao hàng") ||
-        query.includes("lắp đặt")
-      ) {
-        botReply =
-          "HeLiCorp giao hàng nhanh toàn quốc. Khách hàng tại Hà Nội và TP.HCM sẽ được hỗ trợ giao và lắp đặt miễn phí tại nhà trong vòng 2 giờ.";
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: userText }),
+      });
+
+      let botReply = "";
+      if (response.ok) {
+        const data = await response.json();
+        botReply = data.reply;
+      } else {
+        botReply = "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại sau hoặc đăng ký dùng thử để nhận tư vấn nhé!";
       }
+
+      // Remove the "..." placeholder
+      setChatMessages((prev) => {
+        const updated = [...prev];
+        updated.pop();
+        return updated;
+      });
 
       // Stream the response word by word
       const words = botReply.split(" ");
       let currentWordIndex = 0;
 
-      // Add empty bot reply
       setChatMessages((prev) => [...prev, { sender: "bot", text: "" }]);
 
       const interval = setInterval(() => {
@@ -102,8 +93,15 @@ export function HeLiBot() {
         } else {
           clearInterval(interval);
         }
-      }, 60);
-    }, 600);
+      }, 50);
+    } catch (err) {
+      console.error(err);
+      setChatMessages((prev) => {
+        const updated = [...prev];
+        updated.pop(); // Remove the "..." placeholder
+        return [...updated, { sender: "bot", text: "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại nhé!" }];
+      });
+    }
   };
 
   const suggestionsRef = useRef<HTMLDivElement>(null);
