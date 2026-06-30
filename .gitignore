@@ -50,3 +50,5 @@ CLAUDE.md
 
 # Local docs symlink
 second-brain
+# local database
+/data/*.json
