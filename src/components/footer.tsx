@@ -53,7 +53,7 @@ export function Footer() {
               <li>
                 <a
                   href="#tong-quan"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Tổng quan
                 </a>
@@ -61,7 +61,7 @@ export function Footer() {
               <li>
                 <a
                   href="#xsecure"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Công nghệ xSecure
                 </a>
@@ -69,7 +69,7 @@ export function Footer() {
               <li>
                 <a
                   href="#thong-so"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Thông số kỹ thuật
                 </a>
@@ -77,7 +77,7 @@ export function Footer() {
               <li>
                 <a
                   href="#dung-thu"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Đăng ký dùng thử
                 </a>
@@ -98,7 +98,7 @@ export function Footer() {
                     e.preventDefault();
                     toast.info("Chính sách bảo mật đang được cập nhật!");
                   }}
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Chính sách bảo mật
                 </a>
@@ -110,7 +110,7 @@ export function Footer() {
                     e.preventDefault();
                     toast.info("Điều khoản sử dụng đang được cập nhật!");
                   }}
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-500 dark:text-zinc-400 dark:hover:text-lime-400"
+                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
                 >
                   Điều khoản sử dụng
                 </a>
@@ -119,7 +119,7 @@ export function Footer() {
                 Hotline:{" "}
                 <a
                   href="tel:19001234"
-                  className="font-bold text-slate-700 hover:text-lime-500 dark:text-zinc-300 dark:hover:text-lime-400"
+                  className="font-bold text-slate-700 hover:text-lime-600 dark:text-zinc-300 dark:hover:text-lime-400"
                 >
                   1900 1234
                 </a>
@@ -128,7 +128,7 @@ export function Footer() {
                 Email:{" "}
                 <a
                   href="mailto:contact@helicorp.vn"
-                  className="font-bold text-slate-700 hover:text-lime-500 dark:text-zinc-300 dark:hover:text-lime-400"
+                  className="font-bold text-slate-700 hover:text-lime-600 dark:text-zinc-300 dark:hover:text-lime-400"
                 >
                   contact@helicorp.vn
                 </a>

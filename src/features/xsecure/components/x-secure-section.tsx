@@ -1,3 +1,4 @@
+import { Shield, Wind, Cpu } from "lucide-react";
 import { SensorGrid } from "./sensor-grid";
 
 export function XSecureSection() {
@@ -46,15 +47,7 @@ export function XSecureSection() {
           {/* Card 1: Không kẹp chân (Right, 7 cols) */}
           <div className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md lg:col-span-7 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20">
             <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400 transition-all duration-300 group-hover:-translate-y-0.5">
-              <svg
-                className="h-6 w-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-              </svg>
+              <Shield className="h-6 w-6" />
             </div>
             <div>
               <h4 className="mb-1 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
@@ -70,16 +63,8 @@ export function XSecureSection() {
 
           {/* Card 2: Xịt khử mùi (Right bottom-left, 3 cols) */}
           <div className="group flex flex-col justify-between gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md lg:col-span-3 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-amber-500/10 text-amber-500 transition-all duration-300 group-hover:-translate-y-0.5">
-              <svg
-                className="h-6 w-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-              </svg>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400 transition-all duration-300 group-hover:-translate-y-0.5">
+              <Wind className="h-6 w-6" />
             </div>
             <div>
               <h4 className="mb-1 text-lg font-bold tracking-tight text-slate-900 dark:text-white">
@@ -94,17 +79,8 @@ export function XSecureSection() {
 
           {/* Card 3: Cảm biến xSecure (Right bottom-right, 4 cols) */}
           <div className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:border-lime-400/20 hover:shadow-md lg:col-span-4 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400 transition-all duration-300 group-hover:-translate-y-0.5">
-              <svg
-                className="h-6 w-6"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-lime-400/10 text-lime-400 transition-all duration-300 group-hover:-translate-y-0.5">
+              <Cpu className="h-6 w-6" />
             </div>
             <div>
               <h4 className="mb-1 text-lg font-bold tracking-tight text-slate-900 dark:text-white">

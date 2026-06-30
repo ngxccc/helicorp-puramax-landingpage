@@ -46,9 +46,7 @@ export default function Home() {
                   Mở lớp máy
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                  Khi cuộn trang, lớp vỏ tách ra để lộ lồng xoay, lưới mềm, bình
-                  xịt và thùng chứa, mô phỏng sinh động từng chi tiết thiết kế
-                  bên trong thiết bị.
+                  Khám phá cấu trúc thiết bị qua 7 bước cuộn trang trực quan sinh động: từ thiết kế vỏ ngoài, khoang chứa cát 76L rộng rãi, màng lọc, hộc rác đến hệ cảm biến an toàn.
                 </p>
               </div>
             </div>
@@ -63,9 +61,7 @@ export default function Home() {
                   Radar cảm biến
                 </h2>
                 <p className="text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-                  Hotspot phát sáng mô phỏng vùng quét cảm biến, kiểm tra trọng
-                  lượng thông minh và logic chống kẹp độc quyền hoạt động theo
-                  thời gian thực.
+                  Hệ mô phỏng an toàn tương tác: trực quan hóa hoạt động thực tế của hệ cảm biến liên hợp xSecure, phản hồi lực cản thông minh khi kẹp chân và cơ chế xịt khử mùi.
                 </p>
               </div>
             </div>

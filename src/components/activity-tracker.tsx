@@ -132,7 +132,7 @@ export function ActivityTracker() {
                 <span className="absolute inset-0 inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
               </span>
-              <span className="text-[10px] font-bold tracking-wider uppercase opacity-80 leading-none">
+              <span className="text-[10px] leading-none font-bold tracking-wider uppercase opacity-80">
                 NHẬT KÝ HÀNH VI (LIVE)
               </span>
             </div>

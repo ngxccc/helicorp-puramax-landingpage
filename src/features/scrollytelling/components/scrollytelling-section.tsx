@@ -131,7 +131,7 @@ export function ScrollytellingSection() {
     >
       {/* Background Parallax Ambient Glow Elements */}
       <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-        <div className="parallax-bg-1 absolute top-[10%] left-[5%] h-87.5 w-87.5 rounded-full bg-lime-500/10 blur-3xl" />
+        <div className="parallax-bg-1 absolute top-[10%] left-[5%] h-87.5 w-87.5 rounded-full bg-lime-400/10 blur-3xl" />
         <div className="parallax-bg-2 absolute right-[5%] bottom-[15%] h-100 w-100 rounded-full bg-lime-400/10 blur-3xl" />
       </div>
 
@@ -191,7 +191,7 @@ export function ScrollytellingSection() {
                   định và thông minh hơn:
                 </p>
                 <div className="grid max-h-45 scrollbar-thin grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs leading-relaxed lg:max-h-none lg:overflow-visible lg:pr-0 lg:text-sm">
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Nâng cấp lồng chứa cát:
                     </span>
@@ -200,7 +200,7 @@ export function ScrollytellingSection() {
                       dàng tháo lắp và vệ sinh hơn.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Trang bị tấm lót chống dính:
                     </span>
@@ -210,7 +210,7 @@ export function ScrollytellingSection() {
                       lớp silicon chống thấm ngăn nước tiểu rò rỉ ra ngoài.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Phiên bản sáp N50 2.0 mới:
                     </span>
@@ -219,7 +219,7 @@ export function ScrollytellingSection() {
                       mùi hương dễ chịu và hỗ trợ ngăn mùi hôi hiệu quả.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Tấm chắn xả cát nam châm:
                     </span>
@@ -229,7 +229,7 @@ export function ScrollytellingSection() {
                       sinh máy.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Nâng cấp hệ trục từ 2 lên 4 bánh:
                     </span>
@@ -296,7 +296,7 @@ export function ScrollytellingSection() {
                 </h3>
                 <div className="mb-3 grid grid-cols-2 gap-3">
                   <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 dark:border-slate-800/40 dark:bg-[#131B2E]/40">
-                    <span className="block text-lg font-extrabold text-lime-500 lg:text-xl">
+                    <span className="block text-lg font-extrabold text-lime-400 lg:text-xl">
                       76 LÍT
                     </span>
                     <span className="text-[10px] text-slate-500 lg:text-xs dark:text-zinc-400">
@@ -304,7 +304,7 @@ export function ScrollytellingSection() {
                     </span>
                   </div>
                   <div className="rounded-xl border border-slate-100 bg-slate-50 p-3 dark:border-slate-800/40 dark:bg-[#131B2E]/40">
-                    <span className="block text-lg font-extrabold text-lime-500 lg:text-xl">
+                    <span className="block text-lg font-extrabold text-lime-400 lg:text-xl">
                       7 LÍT
                     </span>
                     <span className="text-[10px] text-slate-500 lg:text-xs dark:text-zinc-400">
@@ -353,8 +353,8 @@ export function ScrollytellingSection() {
                   hơn dưới 12mm.
                 </p>
                 <div className="grid grid-cols-1 gap-3 text-xs md:grid-cols-2 lg:text-sm">
-                  <div className="border-l-2 border-lime-500 pl-2.5">
-                    <span className="font-bold text-lime-500">
+                  <div className="border-l-2 border-lime-400 pl-2.5">
+                    <span className="font-bold text-lime-400">
                       Cát phù hợp:
                     </span>
                     <p className="mt-0.5 text-slate-600 dark:text-zinc-400">
@@ -403,7 +403,7 @@ export function ScrollytellingSection() {
                     Tính năng xả cát một chạm trên app giúp làm sạch toàn bộ cát
                     cũ nhanh chóng.
                   </p>
-                  <p className="border-t border-slate-100 pt-2 text-xs font-semibold text-lime-500 lg:text-sm dark:border-slate-800/40">
+                  <p className="border-t border-slate-100 pt-2 text-xs font-semibold text-lime-400 lg:text-sm dark:border-slate-800/40">
                     Máy vận hành siêu êm ái với độ ồn chỉ khoảng 35dB, không làm
                     phiền sinh hoạt gia đình.
                   </p>
@@ -465,7 +465,7 @@ export function ScrollytellingSection() {
                   đảm nhận chức năng riêng biệt:
                 </p>
                 <div className="grid max-h-45 scrollbar-thin grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs leading-relaxed lg:max-h-none lg:overflow-visible lg:pr-0 lg:text-sm">
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Cảm biến tiệm cận:
                     </span>
@@ -475,7 +475,7 @@ export function ScrollytellingSection() {
                       hoặc gây nguy hiểm cho bé.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Cảm biến trọng lượng:
                     </span>
@@ -486,7 +486,7 @@ export function ScrollytellingSection() {
                       đó có thể phân biệt và theo dõi sức khỏe của mèo.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Cảm biến hộc rác:
                     </span>
@@ -495,7 +495,7 @@ export function ScrollytellingSection() {
                       ngăn mùi hiệu quả.
                     </p>
                   </div>
-                  <div className="border-l-2 border-lime-500 pl-2">
+                  <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Cảm biến Hall:
                     </span>

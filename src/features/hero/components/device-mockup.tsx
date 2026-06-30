@@ -8,7 +8,7 @@ export function DeviceMockup() {
       {/* Interactive Mockup Ring & Diagram */}
       <div className="relative flex aspect-square w-full max-w-105 items-center justify-center">
         {/* Ambient Glow */}
-        <div className="absolute inset-0 rounded-full bg-lime-400 opacity-20 blur-3xl transition-all duration-700 dark:bg-lime-500" />
+        <div className="absolute inset-0 rounded-full bg-lime-400 opacity-20 blur-3xl transition-all duration-700 dark:bg-lime-400" />
 
         {/* Main Product Image Wrapper Card - Rounded & Bordered */}
         <div className="relative flex h-80 w-[320px] items-center justify-center overflow-hidden rounded-3xl border border-slate-200/50 bg-slate-50 shadow-xl sm:h-95 sm:w-95 lg:h-105 lg:w-105 dark:border-slate-800/50 dark:bg-slate-900">
