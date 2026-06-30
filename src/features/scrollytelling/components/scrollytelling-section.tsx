@@ -190,7 +190,7 @@ export function ScrollytellingSection() {
                   nâng cấp thiết kế mới nhằm mang lại trải nghiệm sử dụng ổn
                   định và thông minh hơn:
                 </p>
-                <div className="grid max-h-45 scrollbar-thin grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs leading-relaxed lg:max-h-none lg:overflow-visible lg:pr-0 lg:text-sm">
+                <div className="grid max-h-45 scrollbar-thin lg:scrollbar-none grid-cols-1 gap-2 overflow-y-auto lg:overflow-y-visible pr-1 text-xs leading-relaxed lg:max-h-none lg:pr-0 lg:text-sm">
                   <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Nâng cấp lồng chứa cát:
@@ -464,7 +464,7 @@ export function ScrollytellingSection() {
                   cảm biến trọng lượng, tiệm cận, hộp rác, Hall. Mỗi cảm biến
                   đảm nhận chức năng riêng biệt:
                 </p>
-                <div className="grid max-h-45 scrollbar-thin grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs leading-relaxed lg:max-h-none lg:overflow-visible lg:pr-0 lg:text-sm">
+                <div className="grid max-h-45 scrollbar-thin lg:scrollbar-none grid-cols-1 gap-2 overflow-y-auto lg:overflow-y-visible pr-1 text-xs leading-relaxed lg:max-h-none lg:pr-0 lg:text-sm">
                   <div className="border-l-2 border-lime-400 pl-2">
                     <span className="font-bold text-slate-800 dark:text-zinc-200">
                       Cảm biến tiệm cận:
