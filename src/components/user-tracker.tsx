@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useCallback } from "react";
-import { toast } from "sonner";
 
 export function UserTracker() {
   const trackedDepths = useRef<Record<number, boolean>>({
@@ -10,48 +9,44 @@ export function UserTracker() {
     75: false,
   });
 
-  const sendEventToWebhook = useCallback(async (
-    eventName: string,
-    metadata: Record<string, unknown> = {},
-  ) => {
-    try {
-      await fetch("/api/webhook", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          type: "track",
-          eventName,
-          metadata: {
-            ...metadata,
-            viewportWidth:
-              typeof window !== "undefined" ? window.innerWidth : 0,
-            viewportHeight:
-              typeof window !== "undefined" ? window.innerHeight : 0,
-            userAgent:
-              typeof navigator !== "undefined" ? navigator.userAgent : "unknown",
+  const sendEventToWebhook = useCallback(
+    async (eventName: string, metadata: Record<string, unknown> = {}) => {
+      try {
+        await fetch("/api/webhook", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
           },
-        }),
-      });
-    } catch {
-      // Fail silently in the background
-    }
-  }, []);
+          body: JSON.stringify({
+            type: "track",
+            eventName,
+            metadata: {
+              ...metadata,
+              viewportWidth:
+                typeof window !== "undefined" ? window.innerWidth : 0,
+              viewportHeight:
+                typeof window !== "undefined" ? window.innerHeight : 0,
+              userAgent:
+                typeof navigator !== "undefined"
+                  ? navigator.userAgent
+                  : "unknown",
+            },
+          }),
+        });
+      } catch {
+        // Fail silently in the background
+      }
+    },
+    [],
+  );
 
-  const logTrack = useCallback((
-    message: string,
-    eventName: string,
-    metadata: Record<string, unknown> = {},
-  ) => {
-    // Show a user-friendly toast notification
-    toast.info(`[Hành vi] ${message}`, {
-      description: "Ghi nhận hành vi người dùng tại website",
-      duration: 1800,
-    });
-    // Send event to the webhook route
-    void sendEventToWebhook(eventName, metadata);
-  }, [sendEventToWebhook]);
+  const logTrack = useCallback(
+    (eventName: string, metadata: Record<string, unknown> = {}) => {
+      // Send event to the webhook route
+      void sendEventToWebhook(eventName, metadata);
+    },
+    [sendEventToWebhook],
+  );
 
   const scrollHeightRef = useRef<number>(0);
 
@@ -86,11 +81,7 @@ export function UserTracker() {
       [25, 50, 75].forEach((depth) => {
         if (percent >= depth && !trackedDepths.current[depth]) {
           trackedDepths.current[depth] = true;
-          logTrack(
-            `Người dùng cuộn trang đạt ${depth}% chiều dài website`,
-            `Scroll Depth ${depth}%`,
-            { percentScrolled: percent },
-          );
+          logTrack(`Scroll Depth ${depth}%`, { percentScrolled: percent });
         }
       });
     };
@@ -116,10 +107,8 @@ export function UserTracker() {
 
         const text = clickableElement.textContent?.trim() || "";
         const tag = clickableElement.tagName.toLowerCase();
-        const type = tag === "button" ? "Nút bấm" : "Liên kết";
-        const label = text.length > 20 ? `${text.substring(0, 20)}...` : text;
 
-        logTrack(`Click: ${type} "${label || "Không nhãn"}"`, `Click Element`, {
+        logTrack(`Click Element`, {
           elementTag: tag,
           elementText: text,
           elementId: clickableElement.id || "none",

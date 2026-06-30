@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 import { useTheme } from "@/components/theme-provider";
 
 interface LogEvent {
@@ -30,11 +29,6 @@ export function ActivityTracker() {
 
     setLogs((prev) => [newLog, ...prev.slice(0, 19)]); // Keep last 20 logs
 
-    // Display a subtle, non-intrusive notification toast
-    toast.info(`[Hành vi] ${text}`, {
-      description: `Ghi nhận lúc ${time}`,
-      duration: 1800,
-    });
   };
 
   // 1. Track Clicks
@@ -99,7 +93,7 @@ export function ActivityTracker() {
       <button
         id="tracker-toggle-btn"
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-lime-400 text-black shadow-lg hover:scale-105 active:scale-95 transition-all"
+        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-lime-400 text-black shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all"
         title="Nhật ký hành vi thời gian thực"
       >
         <svg
