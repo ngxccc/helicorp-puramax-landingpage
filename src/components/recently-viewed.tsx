@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useIsClient } from "@/hooks/useIsClient";
 import { useEcom } from "./ecom-context";
 import { toast } from "sonner";
 import Image from "next/image";
@@ -15,14 +15,10 @@ import {
 
 export function RecentlyViewed() {
   const { viewed, addToCart, toggleFavorite, favorites } = useEcom();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const isClient = useIsClient();
 
   // Filter out to avoid rendering anything if there are no viewed items or not mounted
-  if (!mounted || viewed.length === 0) return null;
+  if (!isClient || viewed.length === 0) return null;
 
   const mockRecommendations = [
     {
