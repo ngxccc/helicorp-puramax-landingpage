@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "@/components/theme-provider";
-
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 interface LogEvent {
   id: string;
   text: string;
@@ -10,7 +13,6 @@ interface LogEvent {
 }
 
 export function ActivityTracker() {
-  const { isDark } = useTheme();
   const [logs, setLogs] = useState<LogEvent[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -28,7 +30,6 @@ export function ActivityTracker() {
     };
 
     setLogs((prev) => [newLog, ...prev.slice(0, 19)]); // Keep last 20 logs
-
   };
 
   // 1. Track Clicks
@@ -39,12 +40,18 @@ export function ActivityTracker() {
 
       if (buttonOrLink) {
         // Skip clicking tracker button itself to avoid infinite feedback loop
-        if (buttonOrLink.closest("#tracker-toggle-btn") || buttonOrLink.closest("#clear-tracker-btn")) {
+        if (
+          buttonOrLink.closest("#tracker-toggle-btn") ||
+          buttonOrLink.closest("#clear-tracker-btn")
+        ) {
           return;
         }
 
         const text = buttonOrLink.textContent?.trim() || "";
-        const type = buttonOrLink.tagName.toLowerCase() === "button" ? "Nút bấm" : "Liên kết";
+        const type =
+          buttonOrLink.tagName.toLowerCase() === "button"
+            ? "Nút bấm"
+            : "Liên kết";
         const label = text.length > 20 ? `${text.substring(0, 20)}...` : text;
         addLog(`Click: ${type} "${label || "Không nhãn"}"`);
       }
@@ -76,7 +83,7 @@ export function ActivityTracker() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     sections.forEach((s) => {
@@ -88,47 +95,44 @@ export function ActivityTracker() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 left-4 z-40 text-left font-sans">
-      {/* Toggle Button */}
-      <button
-        id="tracker-toggle-btn"
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-lime-400 text-black shadow-lg hover:-translate-y-0.5 active:scale-95 transition-all"
-        title="Nhật ký hành vi thời gian thực"
-      >
-        <svg
-          className="h-5 w-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-        >
-          <path d="M12 20h9M3 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8M3 20h6M13 20v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4" />
-        </svg>
-        {logs.length > 0 && (
-          <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white animate-pulse">
-            {logs.length}
-          </span>
-        )}
-      </button>
-
-      {/* Logs Drawer */}
-      {isOpen && (
-        <div
-          className={`absolute bottom-14 left-0 flex w-72 max-h-80 flex-col overflow-hidden rounded-2xl border p-4 shadow-2xl transition-all duration-300 ${
-            isDark
-              ? "border-slate-800 bg-[#131B2E]/95 text-white"
-              : "border-slate-200 bg-white/95 text-slate-800"
-          }`}
+    <div className="fixed bottom-6 left-4 z-40 text-left font-sans">
+      <Popover open={isOpen} onOpenChange={setIsOpen}>
+        <PopoverTrigger asChild>
+          <button
+            id="tracker-toggle-btn"
+            className="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-lime-400 text-black shadow-lg transition-all active:scale-95"
+            title="Nhật ký hành vi thời gian thực"
+          >
+            <svg
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+            >
+              <path d="M12 20h9M3 20v-8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v8M3 20h6M13 20v-4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4" />
+            </svg>
+            {logs.length > 0 && (
+              <span className="absolute -top-1 -right-1 flex h-5 w-5 animate-pulse items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
+                {logs.length}
+              </span>
+            )}
+          </button>
+        </PopoverTrigger>
+        <PopoverContent
+          side="top"
+          align="start"
+          sideOffset={8}
+          className="bg-popover text-popover-foreground flex max-h-80 w-72 flex-col overflow-hidden rounded-2xl border p-4 shadow-2xl dark:border-slate-800"
         >
           {/* Header */}
-          <div className="mb-3 flex items-center justify-between border-b pb-2 dark:border-slate-800 border-slate-100">
+          <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-2 dark:border-slate-800">
             <div className="flex items-center gap-2">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+              <span className="relative flex h-2 w-2 shrink-0 self-center">
+                <span className="absolute inset-0 inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
               </span>
-              <span className="text-[10px] font-bold tracking-wider uppercase opacity-80">
+              <span className="text-[10px] font-bold tracking-wider uppercase opacity-80 leading-none">
                 NHẬT KÝ HÀNH VI (LIVE)
               </span>
             </div>
@@ -136,7 +140,7 @@ export function ActivityTracker() {
               <button
                 id="clear-tracker-btn"
                 onClick={() => setLogs([])}
-                className="text-[9px] cursor-pointer font-bold text-red-500 hover:text-red-400"
+                className="cursor-pointer text-[9px] font-bold text-red-500 hover:text-red-400"
               >
                 Xóa sạch
               </button>
@@ -144,18 +148,19 @@ export function ActivityTracker() {
           </div>
 
           {/* Logs List */}
-          <div className="flex-1 overflow-y-auto scrollbar-thin pr-1 text-[11px] leading-relaxed flex flex-col gap-2 max-h-56">
+          <div className="flex max-h-56 flex-1 scrollbar-thin flex-col gap-2 overflow-y-auto pr-1 text-[11px] leading-relaxed">
             {logs.length === 0 ? (
               <div className="py-8 text-center text-zinc-500">
-                Chưa ghi nhận hành vi nào. Cuộn chuột hoặc click nút để theo dõi.
+                Chưa ghi nhận hành vi nào. Cuộn chuột hoặc click nút để theo
+                dõi.
               </div>
             ) : (
               logs.map((log) => (
                 <div
                   key={log.id}
-                  className="flex flex-col border-b border-slate-100 dark:border-slate-800/40 pb-1.5 last:border-b-0 animate-fadeIn"
+                  className="animate-fadeIn flex flex-col border-b border-slate-100 pb-1.5 last:border-b-0 dark:border-slate-800/40"
                 >
-                  <span className="text-[9px] text-zinc-500 font-medium">
+                  <span className="text-[9px] font-medium text-zinc-500">
                     {log.time}
                   </span>
                   <span className="font-semibold">{log.text}</span>
@@ -163,8 +168,8 @@ export function ActivityTracker() {
               ))
             )}
           </div>
-        </div>
-      )}
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }
