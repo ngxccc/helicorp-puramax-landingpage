@@ -5,11 +5,10 @@ import { DeviceMockup } from "@/features/hero/components/device-mockup";
 import { XSecureSection } from "@/features/xsecure/components/x-secure-section";
 import { SpecsSection } from "@/features/specs/components/specs-section";
 import { TrialSection } from "@/features/trial/components/trial-section";
-import { HeLiBot } from "@/features/chatbot/components/he-li-bot";
 import { ChatProvider } from "@/components/chat-context";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollytellingSection } from "@/features/scrollytelling/components/scrollytelling-section";
-import { ActivityTracker } from "@/components/activity-tracker";
+import { ClientSideComponents } from "@/components/client-side-components";
 
 export default function Home() {
   return (
@@ -87,11 +86,8 @@ export default function Home() {
         {/* Footer Section */}
         <Footer />
 
-        {/* Floating HeLiBot Chatbot */}
-        <HeLiBot />
-
-        {/* Realtime User Activity Tracker */}
-        <ActivityTracker />
+        {/* Floating HeLiBot & Activity Tracker (loaded client-side dynamically) */}
+        <ClientSideComponents />
       </div>
     </ChatProvider>
   );
