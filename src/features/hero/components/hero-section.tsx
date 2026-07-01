@@ -34,15 +34,15 @@ export function HeroSection() {
       </div>
 
       {/* Heading */}
-      <h1 className="mb-6 text-4xl leading-[1.08] font-extrabold tracking-tighter text-slate-900 sm:text-5xl lg:text-[56px] dark:text-white">
+      <h1 className="mb-6 text-4xl leading-tight font-extrabold tracking-tighter text-slate-900 sm:text-5xl lg:text-[56px] dark:text-white">
         Chăm mèo nhàn tênh <br className="hidden sm:inline" />
-        <span className="text-lime-700 drop-shadow-[0_0_15px_rgba(163,230,53,0.15)] dark:text-lime-400">
+        <span className="text-lime-700 dark:text-lime-400">
           thời đại công nghệ
         </span>
       </h1>
 
       {/* Description */}
-      <p className="mb-8 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg dark:text-zinc-400">
+      <p className="mb-8 max-w-lg text-[15px] leading-relaxed text-slate-600 sm:text-lg dark:text-zinc-400">
         PETKIT Pura Max mang trải nghiệm vệ sinh sang ngôn ngữ của thiết bị gia
         dụng cao cấp: tự sáng cát, khử mùi chủ động, theo dõi an toàn đa cảm
         biến và đủ tinh gọn để hợp với phòng khách hiện đại.

@@ -16,7 +16,6 @@ const geist = Geist({
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin", "vietnamese"],
-  weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
   preload: true,
 });
