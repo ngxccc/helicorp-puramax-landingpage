@@ -55,27 +55,33 @@ const SCROLL_DATA: ScrollytellingStep[] = [
   {
     overheading: "TỔNG HỢP CẢI TIẾN",
     title: "Những điểm cải tiến",
-    description: "So với phiên bản 2024, máy dọn phân mèo PETKIT Pura Max 2 đã nâng cấp thiết kế mới nhằm mang lại trải nghiệm sử dụng ổn định và thông minh hơn:",
+    description:
+      "So với phiên bản 2024, máy dọn phân mèo PETKIT Pura Max 2 đã nâng cấp thiết kế mới nhằm mang lại trải nghiệm sử dụng ổn định và thông minh hơn:",
     bullets: [
       {
         title: "Nâng cấp lồng chứa cát:",
-        description: "Thiết kế mới giúp ngăn chặn rò rỉ nước tiểu, đồng thời dễ dàng tháo lắp và vệ sinh hơn.",
+        description:
+          "Thiết kế mới giúp ngăn chặn rò rỉ nước tiểu, đồng thời dễ dàng tháo lắp và vệ sinh hơn.",
       },
       {
         title: "Trang bị tấm lót chống dính:",
-        description: "Hỗ trợ chống thấm, chống trầy xước và chống dính hiệu quả. Phần vành tấm lót sử dụng cấu trúc viền liền mạch kết hợp lớp silicon chống thấm ngăn nước tiểu rò rỉ ra ngoài.",
+        description:
+          "Hỗ trợ chống thấm, chống trầy xước và chống dính hiệu quả. Phần vành tấm lót sử dụng cấu trúc viền liền mạch kết hợp lớp silicon chống thấm ngăn nước tiểu rò rỉ ra ngoài.",
       },
       {
         title: "Phiên bản sáp N50 2.0 mới:",
-        description: "Thiết kế bọc nhựa khay riêng giúp sạch tay khi thay thế, mùi hương dễ chịu và hỗ trợ ngăn mùi hôi hiệu quả.",
+        description:
+          "Thiết kế bọc nhựa khay riêng giúp sạch tay khi thay thế, mùi hương dễ chịu và hỗ trợ ngăn mùi hôi hiệu quả.",
       },
       {
         title: "Tấm chắn xả cát nam châm:",
-        description: "Tấm chắn xả cát tích hợp nam châm từ tính giúp tháo lắp nhanh chóng chỉ trong 1 giây, vô cùng thuận tiện khi vệ sinh máy.",
+        description:
+          "Tấm chắn xả cát tích hợp nam châm từ tính giúp tháo lắp nhanh chóng chỉ trong 1 giây, vô cùng thuận tiện khi vệ sinh máy.",
       },
       {
         title: "Nâng cấp hệ trục từ 2 lên 4 bánh:",
-        description: "Nâng cấp cơ trục lên 4 bánh xe đỡ lực phân bổ đều lồng quay, giúp hoạt động êm ái, ổn định và trơn tru.",
+        description:
+          "Nâng cấp cơ trục lên 4 bánh xe đỡ lực phân bổ đều lồng quay, giúp hoạt động êm ái, ổn định và trơn tru.",
       },
     ],
     image: {
@@ -132,7 +138,7 @@ const SCROLL_DATA: ScrollytellingStep[] = [
         title: "Cát phù hợp:",
         text: "Khoáng, đất sét, đậu nành hạt nhuyễn, cát hỗn hợp. Đi kèm lưới lọc đa năng cho cát hạt to dưới 12mm.",
         borderColorClass: "border-lime-400",
-        textColorClass: "text-lime-400",
+        textColorClass: "text-lime-700 dark:text-lime-400",
       },
       {
         title: "Lưu ý hạn chế:",
@@ -153,7 +159,8 @@ const SCROLL_DATA: ScrollytellingStep[] = [
       "PETKIT Pura Max 2 hỗ trợ kết nối ứng dụng PETKIT theo dõi từ xa: ghi nhận cân nặng mèo, lịch sử và tần suất đi vệ sinh, nhận cảnh báo khi cát vơi hoặc hộc chứa đầy.",
       "Bạn có thể kích hoạt **Kit Mode** dành riêng cho mèo con để máy chạy bán tự động, tăng tối đa an toàn. Tính năng xả cát một chạm trên app giúp làm sạch toàn bộ cát cũ nhanh chóng.",
     ],
-    footerNote: "Máy vận hành siêu êm ái với độ ồn chỉ khoảng 35dB, không làm phiền sinh hoạt gia đình.",
+    footerNote:
+      "Máy vận hành siêu êm ái với độ ồn chỉ khoảng 35dB, không làm phiền sinh hoạt gia đình.",
     image: {
       src: "/nhatkymeo.webp",
       alt: "PETKIT Pura Max 2 Điều Khiển Qua App",
@@ -174,23 +181,28 @@ const SCROLL_DATA: ScrollytellingStep[] = [
   {
     overheading: "CẢM BIẾN AN TOÀN TOÀN DIỆN",
     title: "Hệ thống 12 cảm biến an toàn",
-    description: "PETKIT Pura Max sở hữu hệ thống 12 cảm biến an toàn bao gồm cảm biến trọng lượng, tiệm cận, hộp rác, Hall. Mỗi cảm biến đảm nhận chức năng riêng biệt:",
+    description:
+      "PETKIT Pura Max sở hữu hệ thống 12 cảm biến an toàn bao gồm cảm biến trọng lượng, tiệm cận, hộp rác, Hall. Mỗi cảm biến đảm nhận chức năng riêng biệt:",
     bullets: [
       {
         title: "Cảm biến tiệm cận:",
-        description: "Tự động dừng hoạt động khi phát hiện mèo hoặc vật thể tiến lại gần. Đảm bảo an toàn cho mèo, tránh tình trạng kẹt hoặc gây nguy hiểm cho bé.",
+        description:
+          "Tự động dừng hoạt động khi phát hiện mèo hoặc vật thể tiến lại gần. Đảm bảo an toàn cho mèo, tránh tình trạng kẹt hoặc gây nguy hiểm cho bé.",
       },
       {
         title: "Cảm biến trọng lượng:",
-        description: "Có khả năng nhận biết khi mèo bước vào hoặc rời khỏi máy để kích hoạt quá trình dọn vệ sinh phù hợp. Ngoài ra, cảm biến này còn giúp xác định cân nặng khi mèo vào máy, nhờ đó có thể phân biệt và theo dõi sức khỏe của mèo.",
+        description:
+          "Có khả năng nhận biết khi mèo bước vào hoặc rời khỏi máy để kích hoạt quá trình dọn vệ sinh phù hợp. Ngoài ra, cảm biến này còn giúp xác định cân nặng khi mèo vào máy, nhờ đó có thể phân biệt và theo dõi sức khỏe của mèo.",
       },
       {
         title: "Cảm biến hộc rác:",
-        description: "Chỉ mở khi máy thực hiện xong 1 quy trình dọn dẹp giúp ngăn mùi hiệu quả.",
+        description:
+          "Chỉ mở khi máy thực hiện xong 1 quy trình dọn dẹp giúp ngăn mùi hiệu quả.",
       },
       {
         title: "Cảm biến Hall:",
-        description: "Kiểm tra tình trạng lắp đặt hộp rác. Nếu hộp rác chưa được gắn đúng vị trí, thiết bị sẽ không vận hành để tránh sự cố trong quá trình sử dụng.",
+        description:
+          "Kiểm tra tình trạng lắp đặt hộp rác. Nếu hộp rác chưa được gắn đúng vị trí, thiết bị sẽ không vận hành để tránh sự cố trong quá trình sử dụng.",
       },
     ],
     image: {
@@ -208,7 +220,10 @@ export function ScrollytellingSection() {
     () => {
       if (!containerRef.current) return;
 
-      const zones = gsap.utils.toArray<HTMLElement>(".trigger-zone", containerRef.current);
+      const zones = gsap.utils.toArray<HTMLElement>(
+        ".trigger-zone",
+        containerRef.current,
+      );
 
       zones.forEach((zone, index) => {
         ScrollTrigger.create({
@@ -313,17 +328,14 @@ export function ScrollytellingSection() {
 
       <div className="pointer-events-none absolute inset-x-0 top-0 z-0 h-full">
         {SCROLL_DATA.map((_, index) => (
-          <div
-            key={index}
-            className="trigger-zone h-[80vh]"
-          />
+          <div key={index} className="trigger-zone h-[80vh]" />
         ))}
       </div>
 
       <div className="sticky top-0 z-10 flex h-screen w-full items-center justify-center overflow-hidden">
         <div className="mx-auto flex h-full w-full max-w-7xl flex-col justify-center px-4 sm:px-6 lg:px-8">
           <div className="mb-6 max-w-3xl text-left lg:mb-10">
-            <span className="mb-2 block text-xs font-bold tracking-widest text-lime-400 uppercase">
+            <span className="mb-2 block text-xs font-bold tracking-widest text-lime-700 uppercase">
               SO SÁNH CẢI TIẾN CHI TIẾT
             </span>
             <h2 className="lg:text-3.5xl mb-3 text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white">
@@ -349,10 +361,10 @@ export function ScrollytellingSection() {
                         : "pointer-events-none translate-y-4 scale-95 opacity-0"
                   }`}
                 >
-                  <span className="mb-1.5 block text-xs font-bold tracking-wider text-lime-400 uppercase lg:text-sm">
+                  <span className="mb-1.5 block text-xs font-bold tracking-wider text-lime-700 uppercase lg:text-sm dark:text-lime-400">
                     {step.overheading}
                   </span>
-                  <h3 className="mb-2 text-xl font-extrabold leading-tight text-slate-900 lg:text-2xl dark:text-white">
+                  <h3 className="mb-2 text-xl leading-tight font-extrabold text-slate-900 lg:text-2xl dark:text-white">
                     {step.title}
                   </h3>
 
@@ -365,7 +377,10 @@ export function ScrollytellingSection() {
                   {step.bullets && (
                     <div className="grid max-h-45 scrollbar-thin grid-cols-1 gap-2 overflow-y-auto pr-1 text-xs leading-relaxed lg:max-h-none lg:scrollbar-none lg:overflow-y-visible lg:pr-0 lg:text-sm">
                       {step.bullets.map((bullet, idx) => (
-                        <div key={idx} className="border-l-2 border-lime-400 pl-2">
+                        <div
+                          key={idx}
+                          className="border-l-2 border-lime-400 pl-2"
+                        >
                           <span className="font-bold text-slate-800 dark:text-zinc-200">
                             {bullet.title}
                           </span>
@@ -387,7 +402,8 @@ export function ScrollytellingSection() {
 
                   {step.highlightBox && (
                     <div className="rounded-lg border border-yellow-500/20 bg-yellow-500/10 p-2.5 text-xs text-yellow-600 lg:text-sm dark:text-yellow-400">
-                      <strong>{step.highlightBox.strongText}</strong> {step.highlightBox.text}
+                      <strong>{step.highlightBox.strongText}</strong>{" "}
+                      {step.highlightBox.text}
                     </div>
                   )}
 
@@ -398,7 +414,7 @@ export function ScrollytellingSection() {
                           key={idx}
                           className="rounded-xl border border-slate-100 bg-slate-50 p-3 dark:border-slate-800/40 dark:bg-[#131B2E]/40"
                         >
-                          <span className="block text-lg font-extrabold text-lime-400 lg:text-xl">
+                          <span className="block text-lg font-extrabold text-lime-700 lg:text-xl dark:text-lime-400">
                             {stat.value}
                           </span>
                           <span className="text-[10px] text-slate-500 lg:text-xs dark:text-zinc-400">
@@ -412,7 +428,10 @@ export function ScrollytellingSection() {
                   {step.dualBoxes && (
                     <div className="grid grid-cols-1 gap-3 text-xs md:grid-cols-2 lg:text-sm">
                       {step.dualBoxes.map((box, idx) => (
-                        <div key={idx} className={`border-l-2 ${box.borderColorClass} pl-2.5`}>
+                        <div
+                          key={idx}
+                          className={`border-l-2 ${box.borderColorClass} pl-2.5`}
+                        >
                           <span className={`font-bold ${box.textColorClass}`}>
                             {box.title}
                           </span>
@@ -425,7 +444,7 @@ export function ScrollytellingSection() {
                   )}
 
                   {step.footerNote && (
-                    <p className="border-t border-slate-100 pt-2 text-xs font-semibold text-lime-400 lg:text-sm dark:border-slate-800/40">
+                    <p className="border-t border-slate-100 pt-2 text-xs font-semibold text-lime-700 lg:text-sm dark:border-slate-800/40 dark:text-lime-400">
                       {step.footerNote}
                     </p>
                   )}
@@ -442,7 +461,7 @@ export function ScrollytellingSection() {
                     alt={step.image.alt}
                     fill
                     priority={index === 0}
-                    sizes="(max-width: 640px) 320px, (max-width: 1024px) 450px, 550px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 650px"
                     className={`absolute rounded-2xl object-contain transition-all duration-500 ${
                       activeStep === index
                         ? "scale-100 opacity-100"
