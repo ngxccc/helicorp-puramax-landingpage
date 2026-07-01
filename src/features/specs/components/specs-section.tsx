@@ -6,7 +6,6 @@ interface SpecCard {
   colSpanClass: string;
 }
 
-// WHY: Asymmetric col-span pattern (7-5 and 5-7) creates an interlocking bento-grid layout to balance visual weight across screen widths.
 const SPEC_DATA: SpecCard[] = [
   {
     id: "dimensions",
@@ -49,7 +48,7 @@ export function SpecsSection() {
       className="mx-auto max-w-7xl px-4 pb-24 sm:px-6 lg:px-8"
     >
       <div className="mb-16 max-w-3xl text-left">
-        <span className="mb-3 block text-xs font-bold tracking-widest text-lime-400 uppercase">
+        <span className="mb-3 block text-xs font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
           THÔNG SỐ KỸ THUẬT CHI TIẾT
         </span>
         <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-balance text-slate-900 sm:text-4xl dark:text-white">
@@ -72,7 +71,7 @@ export function SpecsSection() {
               <span className="mb-1 block text-[10px] font-bold tracking-wider text-slate-600 uppercase dark:text-zinc-400">
                 {card.category}
               </span>
-              <span className="mb-3 block text-xl font-extrabold text-lime-400 transition-transform duration-300 sm:text-2xl">
+              <span className="mb-3 block text-xl font-extrabold text-lime-700 transition-transform duration-300 sm:text-2xl dark:text-lime-400">
                 {card.value}
               </span>
             </div>

@@ -28,7 +28,7 @@ export function TrialSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="flex flex-col text-left lg:col-span-5">
-            <span className="mb-3 block text-xs font-bold tracking-widest text-lime-400 uppercase">
+            <span className="mb-3 block text-xs font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
               ĐĂNG KÝ TRẢI NGHIỆM MIỄN PHÍ
             </span>
             <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl dark:text-white">
