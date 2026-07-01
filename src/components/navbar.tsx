@@ -103,9 +103,9 @@ export function Navbar() {
                 sideOffset={8}
                 className="w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-[#131B2E]"
               >
-                <h4 className="mb-3 text-sm font-bold text-slate-900 dark:text-white">
+                <div className="mb-3 text-sm font-bold text-slate-900 dark:text-white">
                   Sản phẩm yêu thích ({isClient ? favorites.length : 0})
-                </h4>
+                </div>
                 {!isClient || favorites.length === 0 ? (
                   <p className="py-4 text-center text-xs text-slate-500 dark:text-zinc-400">
                     Chưa có sản phẩm yêu thích nào.
@@ -125,9 +125,9 @@ export function Navbar() {
                           className="h-12 w-12 rounded-lg bg-slate-50 object-cover dark:bg-slate-950"
                         />
                         <div className="flex-1 text-left">
-                          <h5 className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
+                          <div className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
                             {item.name}
-                          </h5>
+                          </div>
                           <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
                             {item.price.toLocaleString("vi-VN")}đ
                           </span>
@@ -176,13 +176,13 @@ export function Navbar() {
                 sideOffset={8}
                 className="w-80 rounded-2xl border border-slate-200 bg-white p-4 shadow-xl dark:border-slate-800 dark:bg-[#131B2E]"
               >
-                <h4 className="mb-3 text-sm font-bold text-slate-900 dark:text-white">
+                <div className="mb-3 text-sm font-bold text-slate-900 dark:text-white">
                   Giỏ hàng (
                   {isClient
                     ? cart.reduce((sum, item) => sum + (item.quantity ?? 1), 0)
                     : 0}
                   )
-                </h4>
+                </div>
                 {!isClient || cart.length === 0 ? (
                   <p className="py-4 text-center text-xs text-slate-500 dark:text-zinc-400">
                     Giỏ hàng trống.
@@ -203,9 +203,9 @@ export function Navbar() {
                             className="h-12 w-12 rounded-lg bg-slate-50 object-cover dark:bg-slate-950"
                           />
                           <div className="flex-1 text-left">
-                            <h5 className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
+                            <div className="line-clamp-1 text-xs font-bold text-slate-900 dark:text-white">
                               {item.name}
-                            </h5>
+                            </div>
                             <span className="text-[11px] font-semibold text-lime-600 dark:text-lime-400">
                               {(
                                 item.price * (item.quantity ?? 1)

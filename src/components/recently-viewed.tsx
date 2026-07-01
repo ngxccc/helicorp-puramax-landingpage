@@ -52,7 +52,7 @@ export function RecentlyViewed() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           {/* Recently Viewed (Left - 5 Cols) */}
           <div className="text-left lg:col-span-5">
-            <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-400 uppercase">
+            <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
               BẠN ĐÃ XEM
             </span>
             <h2 className="mb-6 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
@@ -81,7 +81,7 @@ export function RecentlyViewed() {
                       <p className="mt-1 text-xs text-slate-500 dark:text-zinc-400">
                         Sản phẩm chủ đạo của cửa hàng
                       </p>
-                      <span className="mt-2 block text-sm font-extrabold text-lime-600 dark:text-lime-400">
+                      <span className="mt-2 block text-sm font-extrabold text-lime-700 dark:text-lime-400">
                         {item.price.toLocaleString("vi-VN")}đ
                       </span>
                     </div>
@@ -117,7 +117,7 @@ export function RecentlyViewed() {
 
           {/* Recommended Products (Right - 7 Cols) */}
           <div className="text-left lg:col-span-7">
-            <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-400 uppercase">
+            <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
               HỆ SINH THÁI
             </span>
             <h2 className="mb-6 text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
@@ -151,7 +151,7 @@ export function RecentlyViewed() {
                     </CardHeader>
 
                     <CardContent className="p-4 pt-2 pb-0">
-                      <span className="block text-sm font-extrabold text-lime-600 sm:text-base dark:text-lime-400">
+                      <span className="block text-sm font-extrabold text-lime-700 sm:text-base dark:text-lime-400">
                         {prod.price.toLocaleString("vi-VN")}đ
                       </span>
                     </CardContent>
