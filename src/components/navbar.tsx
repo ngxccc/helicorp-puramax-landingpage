@@ -1,11 +1,35 @@
 "use client";
+
 import { useIsClient } from "@/hooks/useIsClient";
 import { useTheme } from "./theme-provider";
 import { useEcom } from "./ecom-context";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { Button } from "./ui/button";
-import { Heart, ShoppingCart, Sun, Moon, ArrowUpRight, Box, X, Minus, Plus } from "lucide-react";
+import {
+  Heart,
+  ShoppingCart,
+  Sun,
+  Moon,
+  ArrowUpRight,
+  Box,
+  X,
+  Minus,
+  Plus,
+} from "lucide-react";
 import Image from "next/image";
+
+interface NavItem {
+  id: string;
+  label: string;
+  target: string;
+}
+
+const NAV_ITEMS: NavItem[] = [
+  { id: "overview", label: "Tổng quan", target: "tong-quan" },
+  { id: "xsecure", label: "xSecure", target: "xsecure" },
+  { id: "specs", label: "Thông số", target: "thong-so" },
+];
+
 export function Navbar() {
   const { isDark, setTheme } = useTheme();
   const isClient = useIsClient();
@@ -40,34 +64,21 @@ export function Navbar() {
             </div>
           </div>
 
-          {/* Navigation Links */}
+          {/* WHY: We use Shadcn's Button with variant="ghost" and hover background overrides to prevent hover background shifts and focus outline borders while retaining component structure. */}
           <nav className="hidden items-center gap-8 text-sm font-semibold md:flex">
-            <Button
-              variant="ghost"
-              onClick={() => scrollTo("tong-quan")}
-              className="cursor-pointer opacity-80 transition-all duration-200 hover:text-lime-400 hover:opacity-100 active:translate-y-px active:scale-[0.98]"
-            >
-              Tổng quan
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollTo("xsecure")}
-              className="cursor-pointer opacity-80 transition-all duration-200 hover:text-lime-400 hover:opacity-100 active:translate-y-px active:scale-[0.98]"
-            >
-              xSecure
-            </Button>
-            <Button
-              variant="ghost"
-              onClick={() => scrollTo("thong-so")}
-              className="cursor-pointer opacity-80 transition-all duration-200 hover:text-lime-400 hover:opacity-100 active:translate-y-px active:scale-[0.98]"
-            >
-              Thông số
-            </Button>
+            {NAV_ITEMS.map((link) => (
+              <Button
+                key={link.id}
+                variant="ghost"
+                onClick={() => scrollTo(link.target)}
+                className="opacity-80 transition-all duration-200 hover:bg-transparent hover:text-lime-400 hover:opacity-100 focus-visible:border-transparent focus-visible:ring-0 focus-visible:ring-offset-0 active:translate-y-px active:scale-[0.98] dark:hover:bg-transparent"
+              >
+                {link.label}
+              </Button>
+            ))}
           </nav>
 
-          {/* Controls & CTA */}
           <div className="flex items-center gap-3 sm:gap-4">
-            {/* Yêu thích (Favorites) Popover */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -140,7 +151,6 @@ export function Navbar() {
               </PopoverContent>
             </Popover>
 
-            {/* Giỏ hàng (Cart) Popover */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -202,7 +212,6 @@ export function Navbar() {
                               ).toLocaleString("vi-VN")}
                               đ
                             </span>
-                            {/* Quantity Controls */}
                             <div className="mt-1 flex items-center gap-2">
                               <Button
                                 variant="secondary"
@@ -241,7 +250,6 @@ export function Navbar() {
                       ))}
                     </div>
 
-                    {/* Total & Checkout */}
                     <div className="mt-2 border-t border-slate-100 pt-3 dark:border-slate-800">
                       <div className="mb-3 flex items-center justify-between text-xs font-bold">
                         <span className="text-slate-600 dark:text-zinc-400">
@@ -272,8 +280,6 @@ export function Navbar() {
               </PopoverContent>
             </Popover>
 
-            {/* Theme Toggle Button */}
-            {/* Theme Toggle Button (Single Toggle) */}
             <Button
               variant="outline"
               size="icon"
@@ -288,10 +294,9 @@ export function Navbar() {
               )}
             </Button>
 
-            {/* CTA Button */}
             <Button
               onClick={() => scrollTo("dung-thu")}
-              className="group hidden items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_4px_25px_rgba(163,230,53,0.4)] active:translate-y-px active:scale-[0.98] sm:flex sm:px-5 sm:py-2.5 sm:text-sm"
+              className="group hidden h-auto items-center gap-1.5 rounded-full bg-lime-400 px-4 py-2 text-xs font-bold text-black shadow-[0_4px_20px_rgba(163,230,53,0.25)] transition-all duration-200 hover:bg-lime-500 active:translate-y-px active:scale-[0.98] sm:flex sm:px-3 sm:py-2.5 sm:text-sm"
             >
               Dùng thử
               <ArrowUpRight className="h-4 w-4 transform transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

@@ -105,7 +105,7 @@ export function ActivityTracker() {
             id="tracker-toggle-btn"
             variant="default"
             size="icon"
-            className="h-12 w-12 bg-lime-400 text-black shadow-lg active:scale-95"
+            className="h-12 w-12 bg-lime-400 text-black shadow-lg hover:bg-lime-500 active:scale-95"
             title="Nhật ký hành vi thời gian thực"
             onClick={() => setIsOpen(!isOpen)}
           >

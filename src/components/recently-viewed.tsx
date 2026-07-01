@@ -2,7 +2,6 @@
 
 import { useIsClient } from "@/hooks/useIsClient";
 import { useEcom } from "./ecom-context";
-import { toast } from "sonner";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { ShoppingCart, Heart } from "lucide-react";
@@ -73,7 +72,7 @@ export function RecentlyViewed() {
                       alt={item.name}
                       width={80}
                       height={80}
-                      className="h-20 w-20 rounded-xl bg-slate-100 object-cover transition-transform duration-300 group-hover:scale-105 dark:bg-slate-950"
+                      className="h-20 w-20 rounded-xl bg-slate-100 object-cover transition-transform duration-300 dark:bg-slate-950"
                     />
                     <div className="flex-1">
                       <h3 className="line-clamp-1 text-sm font-bold text-slate-900 dark:text-white">
@@ -91,10 +90,7 @@ export function RecentlyViewed() {
                         variant="default"
                         size="icon"
                         aria-label="Thêm vào giỏ hàng"
-                        onClick={() => {
-                          addToCart({ ...item, quantity: 1 });
-                          toast.success(`Đã thêm ${item.name} vào giỏ hàng!`);
-                        }}
+                        onClick={() => addToCart({ ...item, quantity: 1 })}
                         className="h-8 w-8 bg-lime-400 text-black shadow-sm hover:bg-lime-500 active:scale-95"
                         title="Thêm giỏ hàng"
                       >
@@ -104,14 +100,7 @@ export function RecentlyViewed() {
                         variant="outline"
                         size="icon"
                         aria-label="Thêm vào danh sách yêu thích"
-                        onClick={() => {
-                          toggleFavorite(item);
-                          if (isFav) {
-                            toast.info("Đã xóa khỏi danh sách yêu thích!");
-                          } else {
-                            toast.success("Đã thêm vào danh sách yêu thích!");
-                          }
-                        }}
+                        onClick={() => toggleFavorite(item)}
                         className="h-8 w-8 hover:text-red-500 active:scale-95"
                         title="Yêu thích"
                       >
@@ -168,10 +157,7 @@ export function RecentlyViewed() {
                     </CardContent>
                     <CardFooter className="flex gap-2 p-4 pt-3">
                       <Button
-                        onClick={() => {
-                          addToCart({ ...prod, quantity: 1 });
-                          toast.success(`Đã thêm ${prod.name} vào giỏ hàng!`);
-                        }}
+                        onClick={() => addToCart({ ...prod, quantity: 1 })}
                         className="flex-1 rounded-lg bg-lime-400 text-center text-xs font-extrabold text-black transition-colors hover:bg-lime-500 sm:py-2.5 sm:text-sm"
                       >
                         Mua ngay
@@ -180,14 +166,7 @@ export function RecentlyViewed() {
                         variant="outline"
                         size="icon"
                         aria-label="Thêm vào danh sách yêu thích"
-                        onClick={() => {
-                          toggleFavorite(prod);
-                          if (isFav) {
-                            toast.info("Đã xóa khỏi danh sách yêu thích!");
-                          } else {
-                            toast.success("Đã thêm vào danh sách yêu thích!");
-                          }
-                        }}
+                        onClick={() => toggleFavorite(prod)}
                         className="h-9 w-9 hover:text-red-500"
                       >
                         <Heart
