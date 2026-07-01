@@ -1,17 +1,69 @@
 "use client";
 
-import { toast } from "sonner";
-import { Box } from "lucide-react";
 import { FacebookIcon, InstagramIcon, YoutubeIcon } from "./social-icons";
+import { Box } from "lucide-react";
+
+const NAV_LINKS = [
+  { href: "#tong-quan", label: "Tổng quan" },
+  { href: "#xsecure", label: "Công nghệ xSecure" },
+  { href: "#thong-so", label: "Thông số kỹ thuật" },
+  { href: "#dung-thu", label: "Đăng ký dùng thử" },
+] as const;
+
+const LEGAL_LINKS = [
+  {
+    href: "#",
+    label: "Chính sách bảo mật",
+    onClick: async (e: React.MouseEvent) => {
+      e.preventDefault();
+      const { toast } = await import("sonner");
+      toast.info("Chính sách bảo mật đang được cập nhật!");
+    },
+  },
+  {
+    href: "#",
+    label: "Điều khoản sử dụng",
+    onClick: async (e: React.MouseEvent) => {
+      e.preventDefault();
+      const { toast } = await import("sonner");
+      toast.info("Điều khoản sử dụng đang được cập nhật!");
+    },
+  },
+] as const;
+
+const SOCIAL_LINKS = [
+  {
+    href: "https://facebook.com",
+    label: "Facebook",
+    Icon: FacebookIcon,
+    hoverColor: "hover:text-blue-600 dark:hover:text-blue-400",
+  },
+  {
+    href: "https://instagram.com",
+    label: "Instagram",
+    Icon: InstagramIcon,
+    hoverColor: "hover:text-pink-600 dark:hover:text-pink-400",
+  },
+  {
+    href: "https://youtube.com",
+    label: "YouTube",
+    Icon: YoutubeIcon,
+    hoverColor: "hover:text-red-600 dark:hover:text-red-400",
+  },
+] as const;
+
+const linkClassName =
+  "text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+
   return (
     <footer className="dark:bg-background border-t border-slate-200 bg-white pt-16 pb-8 transition-colors duration-300 dark:border-slate-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Top Section */}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
-          {/* Brand Info (5 cols) */}
+          {/* Brand Info */}
           <div className="flex flex-col text-left md:col-span-5">
             <a
               href="#tong-quan"
@@ -32,7 +84,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Spacer on md */}
           <div className="hidden md:col-span-1 md:block" />
 
           {/* Links Column 1: Navigation (3 cols) */}
@@ -41,38 +92,13 @@ export function Footer() {
               Sản phẩm
             </span>
             <ul className="flex flex-col gap-3 text-sm font-semibold">
-              <li>
-                <a
-                  href="#tong-quan"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
-                >
-                  Tổng quan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#xsecure"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
-                >
-                  Công nghệ xSecure
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#thong-so"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
-                >
-                  Thông số kỹ thuật
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#dung-thu"
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
-                >
-                  Đăng ký dùng thử
-                </a>
-              </li>
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a href={link.href} className={linkClassName}>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -85,25 +111,19 @@ export function Footer() {
               <li>
                 <a
                   href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toast.info("Chính sách bảo mật đang được cập nhật!");
-                  }}
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
+                  onClick={LEGAL_LINKS[0].onClick}
+                  className={linkClassName}
                 >
-                  Chính sách bảo mật
+                  {LEGAL_LINKS[0].label}
                 </a>
               </li>
               <li>
                 <a
                   href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    toast.info("Điều khoản sử dụng đang được cập nhật!");
-                  }}
-                  className="text-slate-600 transition-colors duration-200 hover:text-lime-600 dark:text-zinc-400 dark:hover:text-lime-400"
+                  onClick={LEGAL_LINKS[1].onClick}
+                  className={linkClassName}
                 >
-                  Điều khoản sử dụng
+                  {LEGAL_LINKS[1].label}
                 </a>
               </li>
               <li className="pt-1 text-xs font-medium text-slate-600 dark:text-zinc-400">
@@ -140,33 +160,18 @@ export function Footer() {
 
           {/* Social Links */}
           <div className="flex gap-4">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100 hover:text-blue-600 active:scale-95 dark:border-slate-800 dark:bg-[#131B2E]/20 dark:text-zinc-400 dark:hover:bg-[#131B2E]/60 dark:hover:text-blue-400"
-              aria-label="Facebook"
-            >
-              <FacebookIcon className="h-4.5 w-4.5" />
-            </a>
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100 hover:text-pink-600 active:scale-95 dark:border-slate-800 dark:bg-[#131B2E]/20 dark:text-zinc-400 dark:hover:bg-[#131B2E]/60 dark:hover:text-pink-400"
-              aria-label="Instagram"
-            >
-              <InstagramIcon className="h-4.5 w-4.5" />
-            </a>
-            <a
-              href="https://youtube.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100 hover:text-red-600 active:scale-95 dark:border-slate-800 dark:bg-[#131B2E]/20 dark:text-zinc-400 dark:hover:bg-[#131B2E]/60 dark:hover:text-red-400"
-              aria-label="YouTube"
-            >
-              <YoutubeIcon className="h-4.5 w-4.5" />
-            </a>
+            {SOCIAL_LINKS.map(({ href, label, Icon, hoverColor }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-200 hover:bg-slate-100 active:scale-95 dark:border-slate-800 dark:bg-[#131B2E]/20 dark:text-zinc-400 dark:hover:bg-[#131B2E]/60 ${hoverColor}`}
+                aria-label={label}
+              >
+                <Icon className="h-4.5 w-4.5" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
