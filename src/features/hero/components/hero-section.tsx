@@ -8,7 +8,7 @@ export function HeroSection() {
         {["PETKIT AI CARE", "7L THÙNG RÁC", "WI-FI 2.4GHZ"].map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-lime-600 uppercase shadow-sm dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-lime-400"
+            className="rounded-full border border-slate-200 bg-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-lime-700 uppercase shadow-sm dark:border-slate-800 dark:bg-[#131B2E]/60 dark:text-lime-400"
           >
             {tag}
           </span>
@@ -18,7 +18,7 @@ export function HeroSection() {
       {/* Heading */}
       <h1 className="mb-6 text-4xl leading-[1.08] font-extrabold tracking-tighter text-slate-900 sm:text-5xl lg:text-[56px] dark:text-white">
         Chăm mèo nhàn tênh <br className="hidden sm:inline" />
-        <span className="text-lime-400 drop-shadow-[0_0_15px_rgba(163,230,53,0.15)]">
+        <span className="text-lime-700 drop-shadow-[0_0_15px_rgba(163,230,53,0.15)]">
           thời đại công nghệ
         </span>
       </h1>
@@ -38,7 +38,7 @@ export function HeroSection() {
             <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
               Chu trình sàng
             </span>
-            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-700 sm:text-2xl">
               180°
             </span>
             <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">
@@ -50,7 +50,7 @@ export function HeroSection() {
             <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
               Khử mùi
             </span>
-            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-700 sm:text-2xl">
               Smart Spray
             </span>
             <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">
@@ -62,7 +62,7 @@ export function HeroSection() {
             <span className="mb-1 block text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase dark:text-slate-400">
               An toàn
             </span>
-            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-400 sm:text-2xl">
+            <span className="mb-1 text-lg font-extrabold tracking-tight text-lime-700 sm:text-2xl">
               xSecure
             </span>
             <span className="line-clamp-3 text-[11px] leading-relaxed text-slate-600 dark:text-zinc-400">

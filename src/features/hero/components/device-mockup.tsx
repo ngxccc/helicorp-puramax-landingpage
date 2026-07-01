@@ -36,7 +36,7 @@ export function DeviceMockup() {
           />
         </div>
         <div className="flex flex-col text-left">
-          <span className="text-[9px] font-bold text-lime-400">BẢO VỆ 3D</span>
+          <span className="text-[9px] font-bold text-lime-700">BẢO VỆ 3D</span>
           <span className="mt-0.5 text-[9px] leading-snug opacity-75">
             Cảm biến nhiệt & hồng ngoại phát hiện mèo từ xa.
           </span>
@@ -55,7 +55,7 @@ export function DeviceMockup() {
           />
         </div>
         <div className="flex flex-col text-left">
-          <span className="text-[9px] font-bold text-lime-400">
+          <span className="text-[9px] font-bold text-lime-700">
             KẾT NỐI APP
           </span>
           <span className="mt-0.5 text-[9px] leading-snug opacity-75">
