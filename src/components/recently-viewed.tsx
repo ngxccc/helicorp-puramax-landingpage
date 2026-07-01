@@ -139,6 +139,7 @@ export function RecentlyViewed() {
                           alt={prod.name}
                           width={300}
                           height={300}
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 33vw, 300px"
                           className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       </div>
