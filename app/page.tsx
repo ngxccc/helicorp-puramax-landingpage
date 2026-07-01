@@ -2,14 +2,48 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { HeroSection } from "@/features/hero/components/hero-section";
 import { DeviceMockup } from "@/features/hero/components/device-mockup";
-import { XSecureSection } from "@/features/xsecure/components/x-secure-section";
-import { SpecsSection } from "@/features/specs/components/specs-section";
-import { TrialSection } from "@/features/trial/components/trial-section";
 import { ChatProvider } from "@/components/chat-context";
 import { Toaster } from "@/components/ui/sonner";
 import { ScrollytellingWrapper } from "@/features/scrollytelling/components/scrollytelling-wrapper";
 import { ClientSideComponents } from "@/components/client-side-components";
-import { RecentlyViewed } from "@/components/recently-viewed";
+import dynamic from "next/dynamic";
+import { RecentlyViewedWrapper } from "@/components/recently-viewed-wrapper";
+
+const XSecureSection = dynamic(
+  () =>
+    import("@/features/xsecure/components/x-secure-section").then(
+      (mod) => mod.XSecureSection,
+    ),
+  {
+    loading: () => (
+      <div className="h-150 w-full animate-pulse bg-slate-50 dark:bg-[#131B2E]/20" />
+    ),
+  },
+);
+
+const SpecsSection = dynamic(
+  () =>
+    import("@/features/specs/components/specs-section").then(
+      (mod) => mod.SpecsSection,
+    ),
+  {
+    loading: () => (
+      <div className="dark:bg-background h-200 w-full animate-pulse bg-white" />
+    ),
+  },
+);
+
+const TrialSection = dynamic(
+  () =>
+    import("@/features/trial/components/trial-section").then(
+      (mod) => mod.TrialSection,
+    ),
+  {
+    loading: () => (
+      <div className="dark:bg-background h-100 w-full animate-pulse bg-slate-50" />
+    ),
+  },
+);
 
 export default function Home() {
   return (
@@ -73,7 +107,7 @@ export default function Home() {
           <XSecureSection />
           <SpecsSection />
           <TrialSection />
-          <RecentlyViewed />
+          <RecentlyViewedWrapper />
         </main>
         <Footer />
 

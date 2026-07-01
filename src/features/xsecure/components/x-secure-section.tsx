@@ -1,4 +1,3 @@
-import type * as React from "react";
 import { Shield, Wind, Cpu } from "lucide-react";
 import { SensorGrid } from "./sensor-grid";
 
@@ -53,7 +52,7 @@ export function XSecureSection() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-16 max-w-3xl text-left">
-          <span className="mb-3 block text-xs font-bold tracking-widest text-lime-700 uppercase">
+          <span className="mb-3 block text-xs font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
             HỆ THỐNG AN TOÀN XSECURE
           </span>
           <h2 className="mb-4 text-3xl font-extrabold tracking-tight text-balance text-slate-900 sm:text-4xl dark:text-white">
@@ -70,7 +69,7 @@ export function XSecureSection() {
         <div className="grid grid-cols-1 items-stretch gap-6 lg:grid-cols-12">
           <div className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/70 p-8 text-left shadow-sm backdrop-blur-md transition-all duration-300 hover:shadow-md lg:col-span-5 lg:row-span-2 dark:border-white/10 dark:bg-[#131B2E]/40 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] dark:hover:border-white/20">
             <div>
-              <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-700 uppercase">
+              <span className="mb-2 block text-[10px] font-bold tracking-widest text-lime-700 uppercase dark:text-lime-400">
                 MÔ PHỎNG AN TOÀN
               </span>
               <h3 className="mb-4 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
