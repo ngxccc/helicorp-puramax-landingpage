@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -214,6 +214,7 @@ const SCROLL_DATA: ScrollytellingStep[] = [
 
 export function ScrollytellingSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeStep, setActiveStep] = useState<number>(0);
 
   useGSAP(
     () => {
@@ -225,99 +226,13 @@ export function ScrollytellingSection() {
       );
 
       zones.forEach((zone, index) => {
-        const image = containerRef.current?.querySelector(
-          `.scrolly-image-${index}`,
-        ) as HTMLElement | null;
-        const text = containerRef.current?.querySelector(
-          `.scrolly-text-${index}`,
-        ) as HTMLElement | null;
-
         ScrollTrigger.create({
           trigger: zone,
-          start: "top 55%",
-          end: "bottom 45%",
-          onEnter: () => {
-            if (image) {
-              gsap.to(image, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out",
-              });
-            }
-            if (text) {
-              gsap.to(text, {
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out",
-                onStart: () => text.classList.add("pointer-events-auto"),
-                onComplete: () => text.classList.remove("pointer-events-none"),
-              });
-            }
-          },
-          onLeave: () => {
-            if (image) {
-              gsap.to(image, {
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.35,
-                ease: "power2.in",
-              });
-            }
-            if (text) {
-              gsap.to(text, {
-                y: -16,
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.35,
-                ease: "power2.in",
-                onStart: () => text.classList.add("pointer-events-none"),
-                onComplete: () => text.classList.remove("pointer-events-auto"),
-              });
-            }
-          },
-          onEnterBack: () => {
-            if (image) {
-              gsap.to(image, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out",
-              });
-            }
-            if (text) {
-              gsap.to(text, {
-                y: 0,
-                scale: 1,
-                opacity: 1,
-                duration: 0.45,
-                ease: "power2.out",
-                onStart: () => text.classList.add("pointer-events-auto"),
-                onComplete: () => text.classList.remove("pointer-events-none"),
-              });
-            }
-          },
-          onLeaveBack: () => {
-            if (image) {
-              gsap.to(image, {
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.35,
-                ease: "power2.in",
-              });
-            }
-            if (text) {
-              gsap.to(text, {
-                y: 16,
-                scale: 0.95,
-                opacity: 0,
-                duration: 0.35,
-                ease: "power2.in",
-                onStart: () => text.classList.add("pointer-events-none"),
-                onComplete: () => text.classList.remove("pointer-events-auto"),
-              });
+          start: "top 50%",
+          end: "bottom 50%",
+          onToggle: (self) => {
+            if (self.isActive) {
+              setActiveStep(index);
             }
           },
         });
@@ -437,7 +352,13 @@ export function ScrollytellingSection() {
               {SCROLL_DATA.map((step, index) => (
                 <div
                   key={index}
-                  className={`scrolly-text-${index} pointer-events-none absolute inset-0 flex translate-y-4 scale-95 flex-col justify-start pt-2 opacity-0 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0`}
+                  className={`absolute inset-0 flex flex-col justify-start pt-2 transition-all duration-500 ease-in-out lg:justify-center lg:pt-0 ${
+                    activeStep === index
+                      ? "pointer-events-auto translate-y-0 scale-100 opacity-100"
+                      : activeStep < index
+                        ? "pointer-events-none -translate-y-4 scale-95 opacity-0"
+                        : "pointer-events-none translate-y-4 scale-95 opacity-0"
+                  }`}
                 >
                   <span className="mb-1.5 block text-xs font-bold tracking-wider text-lime-700 uppercase lg:text-sm dark:text-lime-400">
                     {step.overheading}
@@ -541,7 +462,11 @@ export function ScrollytellingSection() {
                     height={550}
                     priority={index === 0}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 550px"
-                    className={`scrolly-image-${index} absolute scale-95 rounded-2xl object-contain opacity-0 transition-all duration-500`}
+                    className={`absolute rounded-2xl object-contain transition-all duration-500 ${
+                      activeStep === index
+                        ? "scale-100 opacity-100"
+                        : "scale-95 opacity-0"
+                    }`}
                   />
                 ))}
               </div>
