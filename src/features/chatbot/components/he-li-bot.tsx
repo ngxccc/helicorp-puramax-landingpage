@@ -13,28 +13,39 @@ import {
 import { Bubble, BubbleContent } from "@/components/ui/bubble";
 import { Message, MessageContent } from "@/components/ui/message";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
 
-interface Message {
+interface ChatMessage {
   sender: "bot" | "user";
   text: string;
 }
+
+const INITIAL_MESSAGE =
+  "Xin chào! Tôi là HeLiBot. Tôi có thể giúp gì cho bạn về PETKIT Pura Max?";
+
+const SUGGESTIONS = [
+  "Máy cho mèo mấy kg?",
+  "Dùng cát gì?",
+  "Giá bao nhiêu?",
+  "Có bảo hành không?",
+];
 
 export function HeLiBot() {
   const { chatOpen, setChatOpen } = useChat();
 
   const [chatInput, setChatInput] = useState("");
-  const [chatMessages, setChatMessages] = useState<Message[]>([
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([
     {
       sender: "bot",
-      text: "Xin chào! Tôi là HeLiBot. Tôi có thể giúp gì cho bạn về PETKIT Pura Max?",
+      text: INITIAL_MESSAGE,
     },
   ]);
-  // MessageScroller handles scroll behavior automatically
+
   const sendMessage = async (text: string) => {
     if (!text.trim()) return;
 
@@ -42,7 +53,6 @@ export function HeLiBot() {
     setChatMessages((prev) => [...prev, { sender: "user", text: userText }]);
     setChatInput("");
 
-    // Add a typing placeholder indicator
     setChatMessages((prev) => [...prev, { sender: "bot", text: "..." }]);
 
     try {
@@ -61,14 +71,12 @@ export function HeLiBot() {
           "Xin lỗi, tôi gặp sự cố kết nối. Bạn vui lòng thử lại sau hoặc đăng ký dùng thử để nhận tư vấn nhé!";
       }
 
-      // Remove the "..." placeholder
       setChatMessages((prev) => {
         const updated = [...prev];
         updated.pop();
         return updated;
       });
 
-      // Stream the response word by word
       const words = botReply.split(" ");
       let currentWordIndex = 0;
 
@@ -99,7 +107,7 @@ export function HeLiBot() {
       console.error(err);
       setChatMessages((prev) => {
         const updated = [...prev];
-        updated.pop(); // Remove the "..." placeholder
+        updated.pop();
         return [
           ...updated,
           {
@@ -138,7 +146,7 @@ export function HeLiBot() {
     setDraggedDistance(Math.abs(x - startX));
   };
 
-  const handleSendMessage = (e?: React.SubmitEvent) => {
+  const handleSendMessage = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     void sendMessage(chatInput);
   };
@@ -147,9 +155,7 @@ export function HeLiBot() {
     <div className="fixed right-6 bottom-6 z-40 flex flex-col items-end gap-3">
       <Popover open={chatOpen} onOpenChange={setChatOpen}>
         <PopoverTrigger asChild>
-          {/* Floating Toggle Button */}
           <Button className="group/button inline-flex h-11 items-center justify-center gap-2 rounded-full bg-lime-400 px-5 text-sm font-bold text-black shadow-[0_4px_25px_rgba(163,230,53,0.35)] transition-all hover:bg-lime-500 hover:text-black active:scale-95">
-            {/* Bot Indicator Pulse */}
             <span className="relative flex h-2.5 w-2.5 shrink-0 self-center">
               <span className="absolute inset-0 inline-flex h-full w-full animate-ping rounded-full bg-black opacity-75"></span>
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-slate-950"></span>
@@ -165,7 +171,6 @@ export function HeLiBot() {
           sideOffset={12}
           className="animate-slide-up dark:bg-background flex h-112.5 w-80 flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-0 text-slate-800 shadow-2xl sm:w-96 dark:border-slate-800 dark:text-white"
         >
-          {/* Header */}
           <div className="flex items-center justify-between bg-lime-400 px-4 py-3 font-bold text-black">
             <div className="flex items-center gap-2 text-sm">
               <div className="pl-1 text-left">
@@ -185,7 +190,6 @@ export function HeLiBot() {
             </Button>
           </div>
 
-          {/* Messages box */}
           <MessageScrollerProvider>
             <MessageScroller className="relative flex flex-1 flex-col overflow-hidden">
               <MessageScrollerViewport className="dark:bg-background flex-1 scrollbar-none overflow-y-auto bg-slate-50 p-4 text-xs leading-normal">
@@ -222,7 +226,6 @@ export function HeLiBot() {
             </MessageScroller>
           </MessageScrollerProvider>
 
-          {/* Quick replies suggestion chips */}
           <div
             ref={suggestionsRef}
             onMouseDown={handleMouseDown}
@@ -231,12 +234,7 @@ export function HeLiBot() {
             onMouseMove={handleMouseMove}
             className="dark:bg-background/30 flex cursor-grab scrollbar-none gap-2 overflow-x-auto bg-slate-50/30 px-3 py-2.5 text-[11px] whitespace-nowrap select-none active:cursor-grabbing"
           >
-            {[
-              "Máy cho mèo mấy kg?",
-              "Dùng cát gì?",
-              "Giá bao nhiêu?",
-              "Có bảo hành không?",
-            ].map((suggestion) => (
+            {SUGGESTIONS.map((suggestion) => (
               <Button
                 key={suggestion}
                 onClick={() => {
@@ -253,17 +251,16 @@ export function HeLiBot() {
             ))}
           </div>
 
-          {/* Input form */}
           <form
             onSubmit={handleSendMessage}
             className="dark:bg-background flex gap-2 border-t border-slate-200 bg-white p-3 dark:border-slate-800/80"
           >
-            <input
+            <Input
               type="text"
               placeholder="Nhập tin nhắn..."
               value={chatInput}
               onChange={(e) => setChatInput(e.target.value)}
-              className="dark:bg-background flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 transition-all outline-none focus:border-lime-500 dark:border-slate-800 dark:text-white dark:focus:border-lime-400"
+              className="dark:bg-background h-8 flex-1 rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-900 transition-all outline-none focus:border-lime-500 focus-visible:ring-0 focus-visible:ring-offset-0 dark:border-slate-800 dark:text-white dark:focus:border-lime-400"
             />
             <Button
               type="submit"
